@@ -1,10 +1,14 @@
+import pandas as pd
+from sodapy import Socrata
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
 def counties(update, context):
     county = update.message.text
     if county in COUNTIES:
-        context.bot.send_message(chat_id=update.message.chat_id, text=county)
+        # cases   = client.get("jj6z-iyrp", )
+        msg = "El nombre de casos a " + county + "és de "
+        context.bot.send_message(chat_id=update.message.chat_id, text=msg)
     else:
         fail_text = "Escriu una comarca vàlida si us plau"
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
@@ -21,6 +25,9 @@ updater = Updater(token=TOKEN, use_context=True)
 
 # load Catalan counties list
 COUNTIES = set(line.strip() for line in open('counties.txt'))
+
+# load the tests dataset's client
+client = Socrata("analisi.transparenciacatalunya.cat", None)
 
 # when the bot receives the command /start the function start is executed
 updater.dispatcher.add_handler(CommandHandler('start', start))
