@@ -6,17 +6,13 @@ def counties(update, context):
     if county in COUNTIES:
         context.bot.send_message(chat_id=update.message.chat_id, text=county)
     else:
-        fail_text = "Aquesta comarca no existeix"
+        fail_text = "Escriu una comarca vàlida si us plau"
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
 
 
 def start(update, context):
-    init_text = '''
-El bot s'ha inicialitzat correctament!
-Escriu el nom d'una *comarca* i obtindràs les seves dades.
-'''
-    context.bot.send_message(chat_id=update.effective_chat.id,
-                             text=init_text, parse_mode=telegram.ParseMode.MARKDOWN)
+    info_text = "El bot s'ha inicializat correctament!!"
+    context.bot.send_message(chat_id=update.message.chat_id, text=info_text)
 
 
 # build the object to work with Telegram
