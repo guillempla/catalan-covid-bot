@@ -4,8 +4,19 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
 def getNumberCases(county):
-    print(df.loc[df['comarcadescripcio'] == county])
-    return "0"
+    county = county
+    df_county = df.loc[df['comarcadescripcio'] == county]
+    total_tests = 0
+    positive_cases = 0
+    negative_cases = 0
+    for index, row in df_county.iterrows():
+        total_tests += int(row['numcasos'])
+        if row['resultatcoviddescripcio'] == 'Positiu':
+            positive_cases += int(row['numcasos'])
+        elif row['resultatcoviddescripcio' == 'Negatiu']:
+            negative_cases += int(row['numcasos'])
+
+    return str(positive_cases)
 
 
 def counties(update, context):
@@ -34,8 +45,10 @@ COUNTIES = set(line.strip() for line in open('counties.txt'))
 # load the tests dataset's client
 client = Socrata("analisi.transparenciacatalunya.cat", None)
 dataset_id = "jj6z-iyrp"
-data = client.get(dataset_id)
+data = client.get(dataset_id, limit=50000)
 df = pd.DataFrame.from_dict(data)
+df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("\xa0", "")
+df.to_pickle("df.pkl")
 
 # when the bot receives the command /start the function start is executed
 updater.dispatcher.add_handler(CommandHandler('start', start))
