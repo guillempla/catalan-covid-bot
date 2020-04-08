@@ -25,7 +25,7 @@ def printCountyInformation(update, context, county, positive, negative, total):
     msg = county + ":\n" +\
         "El nombre de casos positius és de " + positive + "\n" +\
         "El nombre de casos negatius és de " + negative + "\n" +\
-        "El nombre total de tests que s'ha realitzat és de " + total
+        "El nombre total de tests que s'han realitzat és de " + total
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=msg, parse_mode=ParseMode.MARKDOWN)
 
