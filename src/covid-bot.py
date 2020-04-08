@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sodapy import Socrata
 from telegram import ParseMode
@@ -62,7 +63,8 @@ updater = Updater(token=TOKEN, use_context=True)
 COUNTIES = set(line.strip() for line in open('./text/counties.txt'))
 
 # load the tests dataset's client
-client = Socrata("analisi.transparenciacatalunya.cat", None)
+socrata_token = os.environ.get("SODAPY_APPTOKEN")
+client = Socrata("analisi.transparenciacatalunya.cat", socrata_token)
 dataset_id = "jj6z-iyrp"
 data = client.get(dataset_id, limit=50000)
 df = pd.DataFrame.from_dict(data)
