@@ -43,7 +43,7 @@ def counties(update, context):
 
 # executed when the /help command is called
 def help(update, context):
-    help_text = open('help.txt').read()
+    help_text = open('./text/help.txt').read()
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=help_text, parse_mode=ParseMode.MARKDOWN)
 
@@ -55,11 +55,11 @@ def start(update, context):
 
 
 # build the object to work with Telegram
-TOKEN = open('token.txt').read().strip()
+TOKEN = open('./text/token.txt').read().strip()
 updater = Updater(token=TOKEN, use_context=True)
 
 # load Catalan counties list
-COUNTIES = set(line.strip() for line in open('counties.txt'))
+COUNTIES = set(line.strip() for line in open('./text/counties.txt'))
 
 # load the tests dataset's client
 client = Socrata("analisi.transparenciacatalunya.cat", None)
