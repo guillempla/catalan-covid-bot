@@ -1,4 +1,4 @@
-Escriu el nom d'una comarca de Catalunya per a obtenir el nombre de contagis que hi ha.
+Escriu el nom d'una comarca de Catalunya per conèixer el nombre de contagis que hi ha.
 
 *Alt Pirineu:*
 Alt Urgell
