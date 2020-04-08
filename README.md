@@ -22,11 +22,11 @@ You can run the bot with:
 $ python3 src/covid-bot.py
 ```
 
-![Start](./img/start.jpeg)
+![](./img/readme_images.png)
 
-![Pallars Sobirà cases](./img/pallars.jpeg)
 
-![Help](./img/help.jpeg)
+
+
 
 ## Build With
 
