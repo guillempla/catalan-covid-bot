@@ -52,10 +52,6 @@ Segarra
 Segrià
 Urgell
 
-En les dades de la *Generalitat de Catalunya* hi ha 4 tipus de resultats:
-Positiu, Probable, No valorable i Negatiu. El bot només té en compte les que han donat positiu o negatiu.
-Per tant, la suma de positius i negatius no sempre resulta en el nombre de tests totals.
-
 Les dades estan extretes de la *Generalitat de Catalunya* i es poden trobar al següent enllaç:
 https://analisi.transparenciacatalunya.cat/ca/Salut/Registre-de-test-de-COVID-19-realitzats-a-Cataluny/jj6z-iyrp/data#
 
