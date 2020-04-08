@@ -58,3 +58,6 @@ Per tant, la suma de positius i negatius no sempre resulta en el nombre de tests
 
 Les dades estan extretes de la *Generalitat de Catalunya* i es poden trobar al següent enllaç:
 https://analisi.transparenciacatalunya.cat/ca/Salut/Registre-de-test-de-COVID-19-realitzats-a-Cataluny/jj6z-iyrp/data#
+
+El codi font d'aquest programa es pot trobar a:
+https://github.com/guillempla/catalan-covid-tests-bot
