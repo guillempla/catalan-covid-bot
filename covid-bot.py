@@ -47,6 +47,7 @@ client = Socrata("analisi.transparenciacatalunya.cat", None)
 dataset_id = "jj6z-iyrp"
 data = client.get(dataset_id, limit=50000)
 df = pd.DataFrame.from_dict(data)
+# dataset contains extra characters on those counties finished with 'à'
 df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("\xa0", "")
 df.to_pickle("df.pkl")
 
