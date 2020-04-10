@@ -1,0 +1,57 @@
+*Alt Pirineu:*
+Alt Urgell
+Alta Ribagorça
+Aran
+Pallars Jussà
+Pallars Sobirà
+
+*Barcelona:*
+Baix Llobregat
+Barcelonès
+Maresme
+Vallès Occidental
+Vallès Oriental
+
+*Camp de Tarragona:*
+Alt Camp
+Baix Camp
+Conca de Barberà
+Priorat
+Tarragonès
+
+*Comarques centrals:*
+Anoia
+Bages
+Berguedà
+Osona
+Solsonès
+Moianès
+
+*Comarques gironines:*
+Alt Empordà
+Baix Empordà
+Garrotxa
+Gironès
+Pla de l'Estany
+Selva
+Ripollès
+
+*Penedès:*
+Alt Penedès
+Anoia
+Baix Penedès
+Garraf
+
+*Ponent:*
+Garrigues
+Noguera
+Pla d'Urgell
+Segarra
+Segrià
+Urgell
+
+*Terres de l'Ebre:*
+Baix Ebre
+Montsià
+Ribera d'Ebre
+Terra Alta
