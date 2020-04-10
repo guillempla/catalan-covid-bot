@@ -1,62 +1,6 @@
-Escriu el nom d'una comarca de Catalunya per conèixer el nombre de contagis que hi ha.
+Escriu el nom d'una comarca  o d'un municipi de Catalunya per conèixer el nombre de contagis que hi ha.
 
-*Alt Pirineu:*
-Alt Urgell
-Alta Ribagorça
-Aran
-Pallars Jussà
-Pallars Sobirà
-
-*Barcelona:*
-Baix Llobregat
-Barcelonès
-Maresme
-Vallès Occidental
-Vallès Oriental
-
-*Camp de Tarragona:*
-Alt Camp
-Baix Camp
-Conca de Barberà
-Priorat
-Tarragonès
-
-*Comarques centrals:*
-Anoia
-Bages
-Berguedà
-Osona
-Solsonès
-Moianès
-
-*Comarques gironines:*
-Alt Empordà
-Baix Empordà
-Garrotxa
-Gironès
-Pla de l'Estany
-Selva
-Ripollès
-
-*Penedès:*
-Alt Penedès
-Anoia
-Baix Penedès
-Garraf
-
-*Ponent:*
-Garrigues
-Noguera
-Pla d'Urgell
-Segarra
-Segrià
-Urgell
-
-*Terres de l'Ebre:*
-Baix Ebre
-Montsià
-Ribera d'Ebre
-Terra Alta
+Per a veure el llistat de comarques clica a /comarques. I per a veure el llistat de municipis clica /municipis.
 
 Les dades estan extretes de la *Generalitat de Catalunya* i es poden trobar al següent enllaç:
 https://analisi.transparenciacatalunya.cat/ca/Salut/Registre-de-test-de-COVID-19-realitzats-a-Cataluny/jj6z-iyrp/data#
