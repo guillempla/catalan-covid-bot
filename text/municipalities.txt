@@ -7,7 +7,7 @@ Vilablareix
 Alfarràs
 L'Ametlla del Vallès
 Santa Coloma de Farners
-Vilobí dOnyar
+Vilobí d'Onyar
 Almacelles
 Campdevànol
 Poboleda
@@ -42,9 +42,9 @@ Rosselló
 La Vall de Boí
 Sant Pol de Mar
 Montornès del Vallès
-Corbera dEbre
+Corbera d'Ebre
 Puigverd de Lleida
-Puigverd dAgramunt
+Puigverd d'Agramunt
 Barcelona
 Copons
 Castelló de Farfanya
@@ -54,7 +54,7 @@ Puiggròs
 Torrelameu
 Calella
 Vallfogona de Balaguer
-Riba-Roja dEbre
+Riba-Roja d'Ebre
 Castellserà
 Sant Miquel de Campmajor
 Fontanals de Cerdanya
@@ -69,7 +69,7 @@ Sant Martí Sarroca
 La Pera
 Vilopriu
 La Llagosta
-lAlbiol
+L'Albiol
 Sanaüja
 Cerdanyola del Vallès
 Torregrossa
@@ -110,7 +110,7 @@ Cistella
 Malla
 Jafre
 Cunit
-Santa Cristina dAro
+Santa Cristina d'Aro
 Colera
 La Fuliola
 Igualada
@@ -197,17 +197,17 @@ Llanars
 Cubelles
 Mortellà i Martinet
 Viladecans
-Vallbona dAnoia
+Vallbona d'Anoia
 Fonollosa
 Pals
 Aguilar de Segarra
 Collsuspina
-Bellcaire dEmpordà
+Bellcaire d'Empordà
 Jorba
 L'Arboç
 Ullà
 Vilafant
-La Seu dUrgell
+La Seu d'Urgell
 Lluçà
 Solivella
 Calldetenes
@@ -231,7 +231,7 @@ Santa Maria de Martorelles
 Palau-Sator
 Ponts
 Vila-Rodona
-Castell-Platja dAro
+Castell-Platja d'Aro
 Bellver de Cerdanya
 Badia del Vallès
 Llívia
@@ -248,7 +248,7 @@ Camarasa
 Breda
 Alpicat
 Vilaller
-La Bisbal dEmpordà
+La Bisbal d'Empordà
 El Bruc
 La Fatarella
 Sant Cugat del Vallès
@@ -277,26 +277,26 @@ Serinyà
 Les Masies de Roda
 Cornellà del Terri
 Els Alamús
-El Pont dArmentera
+El Pont d'Armentera
 Sant Pere de Ribes
 Sant Joan Despí
 Santa Fe del Penedès
 Gelida
 Llambilles
 Sant Ramon
-La Granja dEscarp
+La Granja d'Escarp
 Saldes
 Ullastret
-lAldea
+L'Aldea
 Sant Esteve Sesrovires
 Santa Coloma de Cervelló
 Les Masies de Voltregà
 Torrelles de Llobregat
-La Vall dEn Bas
+La Vall d'En Bas
 Vallromanes
 Mura
 Avinyonet de Puigventós
-Sant Sadurní dAnoia
+Sant Sadurní d'Anoia
 Seva
 Montferri
 Castellfollit de la Roca
@@ -306,7 +306,7 @@ Premià de Dalt
 Súria
 Castellbell i el Vilar
 Torrelles de Foix
-Vandellòs i lHospitalet de lInfant
+Vandellòs i lHospitalet de l'Infant
 Calders
 La Riera de Gaià
 Balenyà
@@ -320,11 +320,11 @@ Bellpuig
 Vilallonga del Camp
 Reus
 Flaçà
-La Palma dEbre
+La Palma d'Ebre
 Sant Ferriol
 Vilobí del Penedès
 Vacarisses
-lAlbagés
+L'Albagés
 Garcia
 Vilabella
 L'Ampolla
@@ -363,9 +363,9 @@ Tortosa
 Ripollet
 Martorell
 Gavet de la Conca
-Santa Maria dOló
+Santa Maria d'Oló
 Els Prats de Rei
-La Tallada dEmpordà
+La Tallada d'Empordà
 Rubí
 Urús
 Barbens
@@ -384,7 +384,7 @@ Albinyana
 Les Preses
 Sunyer
 Sant Just Desvern
-Lliçà dAmunt
+Lliçà d'Amunt
 Riumors
 La Pobla de Lillet
 Les Planes dHostoles
@@ -399,7 +399,7 @@ Creixell
 Hostalric
 Palau-Saverdera
 Vinaixa
-Vilanova dEscornalbou
+Vilanova d'Escornalbou
 Gualba
 Tremp
 Ulldemolins
@@ -420,7 +420,7 @@ Vilanova de Sau
 Santpedor
 Conca de Dalt
 Riells i Viabrea
-Ribera dUrgellet
+Ribera d'Urgellet
 Miralcamp
 Sidamon
 Olius
@@ -451,7 +451,7 @@ Cardedeu
 Santa Perpétua de Mogoda
 Vilalba Sasserra
 Badalona
-Canet dAdri
+Canet d'Adri
 Les Borges del Camp
 Linyola
 Fornells de la Selva
@@ -469,7 +469,7 @@ Castellnou de Seana
 Vall-Llobrega
 Vilanova de Meià
 Tiana
-El Palau dAnglesola
+El Palau d'Anglesola
 Arenys de Munt
 Torredembarra
 Riudoms
@@ -494,9 +494,9 @@ Sarrià de Ter
 Bordils
 Bescanó
 Mollerussa
-Ivars dUrgell
+Ivars d'Urgell
 La Canonja
-La Torre de lEspanyol
+La Torre de l'Espanyol
 Fogars de Montclús
 Llavorsí
 Mont-Ras
@@ -532,11 +532,11 @@ El Pla de Santa Maria
 Sant Martí Vell
 Sant Joan Les Fonts
 Rajadell
-El Far dEmpordà
+El Far d'Empordà
 Avinyonet del Penedès
 Tarragona
 La Baronia de Rialb
-Bell-Lloc dUrgell
+Bell-Lloc d'Urgell
 Sant Jaume de Llierca
 Piera
 Sant Jaume dels Domenys
@@ -569,7 +569,7 @@ Horta de Sant Joan
 Corbins
 Maçanet de Cabrenys
 Ginestar
-Castelló dEmpúries
+Castelló d'Empúries
 Sentmenat
 Flix
 Sant Hipòlit de Voltregà
@@ -592,7 +592,7 @@ Cabra del Camp
 Almenar
 Palafolls
 Vinyols i  els Arcs
-Cabrera dAnoia
+Cabrera d'Anoia
 Argentona
 Begues
 Santa Pau
@@ -602,7 +602,7 @@ Sant Guim de Freixenet
 Pontós
 El Catllar
 Marganell
-Móra dEbre
+Móra d'Ebre
 Sant Hilari Sacalm
 Castellgalí
 La Masó
@@ -615,7 +615,7 @@ Alió
 Sant Celoni
 Artés
 Cruïlles Monells i Sant Sadurní de lHeura
-Sant Jaume dEnveja
+Sant Jaume d'Enveja
 Alguaire
 Castelldans
 Santa Margarida i els Monjos
@@ -629,7 +629,7 @@ Molins de Rei
 Rialp
 Benifallet
 Sant Quirze de Besora
-Caldes dEstrac
+Caldes d'Estrac
 Ger
 Rupit i Pruit
 L'Aleixar
@@ -711,7 +711,7 @@ Sant Iscle de Vallalta
 Darnius
 Malgrat de Mar
 Premià de Mar
-Ribera dOndara
+Ribera d'Ondara
 Sant Martí de Riucorb
 Palafrugell
 Naut Aran
@@ -725,7 +725,7 @@ Lladó
 Sant Llorenç dHortons
 Bàscara
 Maspujols
-Bellcaire dUrgell
+Bellcaire d'Urgell
 Es Bòrdes
 Cervera
 Espinelves
