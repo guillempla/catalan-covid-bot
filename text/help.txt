@@ -52,6 +52,12 @@ Segarra
 Segrià
 Urgell
 
+*Terres de l'Ebre:*
+Baix Ebre
+Montsià
+Ribera d'Ebre
+Terra Alta
+
 Les dades estan extretes de la *Generalitat de Catalunya* i es poden trobar al següent enllaç:
 https://analisi.transparenciacatalunya.cat/ca/Salut/Registre-de-test-de-COVID-19-realitzats-a-Cataluny/jj6z-iyrp/data#
 
