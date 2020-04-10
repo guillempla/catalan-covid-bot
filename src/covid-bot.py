@@ -11,7 +11,9 @@ def writeCountyProperly(county):
 
 
 def updateDatabase():
-    data = client.get(dataset_id, limit=50000)
+    # load the tests dataset's client
+    client = Socrata(dataset_link, socrata_token)
+    data = client.get(dataset_id, limit=LIMIT)
     df = pd.DataFrame.from_dict(data)
     # dataset contains extra characters on those counties finished with 'à'
     df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
@@ -19,10 +21,12 @@ def updateDatabase():
     df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("à", "a")
     df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("è", "e")
     df['comarcadescripcio'] = df['comarcadescripcio'].str.lower()
+    return df
 
 
 # calculates the number of cases for the county
 def getNumberCases(county):
+    df = updateDatabase()
     df_county = df.loc[df['comarcadescripcio'] == county]
     total_tests = 0
     positive_cases = 0
@@ -48,7 +52,6 @@ def printCountyInformation(update, context, county, positive, negative, total):
 
 # executed when the bot receives a message
 def counties(update, context):
-    updateDatabase()
     county = update.message.text
     county = county.replace("à", "a").replace("è", "e").lower()
     if county in COUNTIES:
@@ -79,18 +82,11 @@ updater = Updater(token=TOKEN, use_context=True)
 # load Catalan counties list
 COUNTIES = [line.strip().replace("à", "a").replace("è", "e").lower()
             for line in open('./text/counties.txt')]
-# load the tests dataset's client
+# load the socrata token and the dataset_id
 socrata_token = os.environ.get("SODAPY_APPTOKEN")
-client = Socrata("analisi.transparenciacatalunya.cat", socrata_token)
+dataset_link = "analisi.transparenciacatalunya.cat"
 dataset_id = "jj6z-iyrp"
-data = client.get(dataset_id, limit=50000)
-df = pd.DataFrame.from_dict(data)
-# dataset contains extra characters on those counties finished with 'à'
-df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
-    "\xa0", "")
-df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("à", "a")
-df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("è", "e")
-df['comarcadescripcio'] = df['comarcadescripcio'].str.lower()
+LIMIT = 50000
 # when the bot receives a command its functionis executed
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('help', help))
