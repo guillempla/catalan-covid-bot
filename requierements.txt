@@ -1,0 +1,4 @@
+Markdown==3.1.1
+pandas==0.25.3
+python-telegram-bot==12.2.0
+sodapy==2.1.0
