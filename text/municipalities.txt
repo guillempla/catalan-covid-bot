@@ -28,7 +28,7 @@ Bellvís
 El Pont de Suert
 Muntanyola
 Els Omellons
-Santa Llogaia dÀlguema
+Santa Llogaia d'Àlguema
 Ciutadilla
 Riudellots de la Selva
 Montbrió del Camp
@@ -104,8 +104,8 @@ Masdenverge
 Castellfollit del Boix
 Salou
 Montferrer i Castellbò
-Esterri dÀneu
-Torrefeta i florejacs
+Esterri d'Àneu
+Torrefeta i Florejacs
 Cistella
 Malla
 Jafre
@@ -186,7 +186,6 @@ Vilanant
 Isòvol
 Torrefarrera
 Gallifa
-(Altres municipis)
 Alcanar
 Vilanova del Camí
 Tortellà
@@ -292,7 +291,7 @@ Sant Esteve Sesrovires
 Santa Coloma de Cervelló
 Les Masies de Voltregà
 Torrelles de Llobregat
-La Vall d'En Bas
+La Vall d'en Bas
 Vallromanes
 Mura
 Avinyonet de Puigventós
@@ -306,7 +305,7 @@ Premià de Dalt
 Súria
 Castellbell i el Vilar
 Torrelles de Foix
-Vandellòs i lHospitalet de l'Infant
+Vandellòs i l'Hospitalet de l'Infant
 Calders
 La Riera de Gaià
 Balenyà
@@ -387,7 +386,7 @@ Sant Just Desvern
 Lliçà d'Amunt
 Riumors
 La Pobla de Lillet
-Les Planes dHostoles
+Les Planes d'Hostoles
 Ribes de Freser
 Godall
 Maials
@@ -446,9 +445,9 @@ Prades
 Sant Feliu de Codines
 Alp
 Agramunt
-LHospitalet de Llobregat
+L'Hospitalet de Llobregat
 Cardedeu
-Santa Perpétua de Mogoda
+Santa Perpètua de Mogoda
 Vilalba Sasserra
 Badalona
 Canet d'Adri
@@ -481,7 +480,7 @@ La Granada
 Altafulla
 Matadepera
 Duesaigües
-Sant Quirze  Safaja
+Sant Quirze Safaja
 Ogassa
 Peralada
 Masarac
@@ -530,7 +529,7 @@ Tàrrega
 Montesquiu
 El Pla de Santa Maria
 Sant Martí Vell
-Sant Joan Les Fonts
+Sant Joan les Fonts
 Rajadell
 El Far d'Empordà
 Avinyonet del Penedès
@@ -591,7 +590,7 @@ Caldes de Montbui
 Cabra del Camp
 Almenar
 Palafolls
-Vinyols i  els Arcs
+Vinyols i els Arcs
 Cabrera d'Anoia
 Argentona
 Begues
@@ -614,7 +613,7 @@ La Pobla de Mafumet
 Alió
 Sant Celoni
 Artés
-Cruïlles Monells i Sant Sadurní de lHeura
+Cruïlles Monells i Sant Sadurní de l'Heura
 Sant Jaume d'Enveja
 Alguaire
 Castelldans
@@ -660,7 +659,7 @@ Olot
 Santa Coloma de Gramenet
 Camós
 Viladecavalls
-La Guingueta dÀneu
+La Guingueta d'Àneu
 Marçà
 Argençola
 El Vendrell
@@ -722,7 +721,7 @@ Sant Bartomeu del Grau
 Palau-Solità i Plegamans
 Collbató
 Lladó
-Sant Llorenç dHortons
+Sant Llorenç d'Hortons
 Bàscara
 Maspujols
 Bellcaire d'Urgell
