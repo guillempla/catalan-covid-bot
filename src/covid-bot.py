@@ -5,6 +5,10 @@ from telegram import ParseMode
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
+def cleanString(msg):
+    return msg.strip().lower().replace("à", "a").replace("è", "e").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ò", "o").replace("ú", "u")
+
+
 def writeCountyProperly(region):
     if region in COUNTIES:
         original_counties = [line.strip() for line in open('./text/counties.txt')]
@@ -23,15 +27,19 @@ def updateDatabase():
     # dataset contains extra characters on those counties finished with 'à'
     df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
         "\xa0", "")
+    df['comarcadescripcio'] = df['comarcadescripcio'].str.lower()
     df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("à", "a")
     df['comarcadescripcio'] = df['comarcadescripcio'].str.replace("è", "e")
-    df['comarcadescripcio'] = df['comarcadescripcio'].str.lower()
     df['municipidescripcio'] = df['municipidescripcio'].str.replace(
         "\xa0", "")
+    df['municipidescripcio'] = df['municipidescripcio'].str.lower()
     df['municipidescripcio'] = df['municipidescripcio'].str.replace("à", "a")
     df['municipidescripcio'] = df['municipidescripcio'].str.replace("è", "e")
-    df['municipidescripcio'] = df['municipidescripcio'].str.replace("À", "A")
-    df['municipidescripcio'] = df['municipidescripcio'].str.lower()
+    df['municipidescripcio'] = df['municipidescripcio'].str.replace("é", "e")
+    df['municipidescripcio'] = df['municipidescripcio'].str.replace("í", "i")
+    df['municipidescripcio'] = df['municipidescripcio'].str.replace("ó", "o")
+    df['municipidescripcio'] = df['municipidescripcio'].str.replace("ò", "o")
+    df['municipidescripcio'] = df['municipidescripcio'].str.replace("ú", "u")
     return df
 
 
@@ -65,7 +73,7 @@ def printCountyInformation(update, context, region, positive, negative, total):
 def query(update, context):
     region = update.message.text
     print(region)
-    region = region.replace("à", "a").replace("è", "e").replace("À", "A").lower()
+    region = cleanString(region)
     if region in COUNTIES:
         positive, negative, total = getNumberCases(region, 'comarcadescripcio')
         printCountyInformation(update, context, region, positive, negative, total)
@@ -73,7 +81,7 @@ def query(update, context):
         positive, negative, total = getNumberCases(region, 'municipidescripcio')
         printCountyInformation(update, context, region, positive, negative, total)
     else:
-        fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid si us plau. Consulta a /help les comarques."
+        fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid si us plau. Clica a /comarques o /municipis."
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
 
 
@@ -106,10 +114,8 @@ TOKEN = open('./text/token.txt').read().strip()
 updater = Updater(token=TOKEN, use_context=True)
 
 # load Catalan counties list
-COUNTIES = [line.strip().replace("à", "a").replace("è", "e").replace("À", "A").lower()
-            for line in open('./text/counties.txt')]
-MUNICIPALITIES = [line.strip().replace("à", "a").replace("è", "e").replace("À", "A").lower()
-                  for line in open('./text/municipalities_complete.txt')]
+COUNTIES = [cleanString(line) for line in open('./text/counties.txt')]
+MUNICIPALITIES = [cleanString(line) for line in open('./text/municipalities_complete.txt')]
 # load the socrata token and the dataset_id
 socrata_token = os.environ.get("SODAPY_APPTOKEN")
 dataset_link = "analisi.transparenciacatalunya.cat"
