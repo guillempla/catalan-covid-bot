@@ -2,7 +2,7 @@
 
 Telegram bot that gives information about COVID-19 tests in Catalonia. The bot receives a Catalan county or municipality and sends a message to the user with the positive and negative cases and total tests done.
 
-You can test the bot following this link: [COVIDCAT BOT](tg://resolve?domain=CatalunyaCOVID19bot)
+You can test the bot following this link: [COVIDCAT BOT](https://t.me/CatalunyaCOVID19bot)
 
 ## Getting Started
 
