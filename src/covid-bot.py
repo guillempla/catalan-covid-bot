@@ -60,6 +60,12 @@ def printCountyInformation(update, context, region, positive, probable, total, d
                              text=msg, parse_mode=ParseMode.MARKDOWN)
 
 
+def printMaintenance(update, context):
+    maintenance_text = "La base de dades de la Generalitat de Catalunya està en manteniment. També pots consultar el nombre de tests realitzats al següent link:\n" +\
+        "http://aquas.gencat.cat/ca/actualitat/ultimes-dades-coronavirus/mapa-per-municipis/"
+    context.bot.send_message(chat_id=update.message.chat_id, text=maintenance_text)
+
+
 def typeOfRegion(region):
     closest_match = difflib.get_close_matches(region, REGIONS, cutoff=0.7)
     if len(closest_match) != 0:
