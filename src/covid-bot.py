@@ -46,7 +46,9 @@ def getNumberCases(region, descripcio):
             positive_cases += int(row['numcasos'])
         elif row['resultatcoviddescripcio'] == 'Sospitós':
             probable_cases += int(row['numcasos'])
-    return (str(positive_cases), str(probable_cases), str(total_tests), max_date.strftime("%d/%m/%Y"))
+    if max_date != 'None':
+        max_date = max_date.strftime("%d/%m/%Y")
+    return (str(positive_cases), str(probable_cases), str(total_tests), max_date)
 
 
 # send a message to the user with the information of covid
@@ -54,8 +56,9 @@ def printCountyInformation(update, context, region, positive, probable, total, d
     msg = region + ":\n" +\
         "El nombre de casos positius és de " + positive + "\n" +\
         "El nombre de casos sospitosos és de " + probable + "\n" +\
-        "El nombre total de tests que s'han realitzat és de " + total + "\n\n" +\
-        "L'última dada és del dia " + date
+        "El nombre total de tests que s'han realitzat és de " + total + "\n\n"
+    if date != 'None':
+        msg = msg + "L'última dada és del dia " + date
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=msg, parse_mode=ParseMode.MARKDOWN)
 
@@ -79,6 +82,7 @@ def typeOfRegion(region):
 # executed when the bot receives a message
 def query(update, context):
     region = update.message.text
+    print(update.message.from_user.full_name)
     print(region)
     region, type = typeOfRegion(region)
     if (type == 0):
