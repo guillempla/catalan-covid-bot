@@ -2,6 +2,7 @@ import os
 import difflib
 import pandas as pd
 from sodapy import Socrata
+from datetime import datetime
 from telegram import ParseMode
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -19,28 +20,42 @@ def updateDatabase():
     return df
 
 
+def updateMaxDate(max_date, date_string):
+    date_string = date_string[:date_string.find('.')]
+    if max_date == 'None':
+        max_date = datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
+    else:
+        aux_date = datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
+        if aux_date > max_date:
+            max_date = aux_date
+    return max_date
+
+
 # calculates the number of cases for the county
 def getNumberCases(region, descripcio):
     df = updateDatabase()
     df_region = df.loc[df[descripcio] == region]
     total_tests = 0
     positive_cases = 0
-    negative_cases = 0
+    probable_cases = 0
+    max_date = 'None'
     for index, row in df_region.iterrows():
         total_tests += int(row['numcasos'])
+        max_date = updateMaxDate(max_date, row['data'])
         if row['resultatcoviddescripcio'] == 'Positiu':
             positive_cases += int(row['numcasos'])
-        elif row['resultatcoviddescripcio'] == 'Negatiu':
-            negative_cases += int(row['numcasos'])
-    return (str(positive_cases), str(negative_cases), str(total_tests))
+        elif row['resultatcoviddescripcio'] == 'Sospitós':
+            probable_cases += int(row['numcasos'])
+    return (str(positive_cases), str(probable_cases), str(total_tests), max_date.strftime("%d/%m/%Y"))
 
 
 # send a message to the user with the information of covid
-def printCountyInformation(update, context, region, positive, negative, total):
+def printCountyInformation(update, context, region, positive, probable, total, date):
     msg = region + ":\n" +\
         "El nombre de casos positius és de " + positive + "\n" +\
-        "El nombre de casos negatius és de " + negative + "\n" +\
-        "El nombre total de tests que s'han realitzat és de " + total
+        "El nombre de casos sospitosos és de " + probable + "\n" +\
+        "El nombre total de tests que s'han realitzat és de " + total + "\n\n" +\
+        "L'última dada és del dia " + date
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=msg, parse_mode=ParseMode.MARKDOWN)
 
@@ -61,11 +76,11 @@ def query(update, context):
     print(region)
     region, type = typeOfRegion(region)
     if (type == 0):
-        positive, negative, total = getNumberCases(region, 'comarcadescripcio')
-        printCountyInformation(update, context, region, positive, negative, total)
+        positive, negative, total, date = getNumberCases(region, 'comarcadescripcio')
+        printCountyInformation(update, context, region, positive, negative, total, date)
     elif (type == 1):
-        positive, negative, total = getNumberCases(region, 'municipidescripcio')
-        printCountyInformation(update, context, region, positive, negative, total)
+        positive, negative, total, date = getNumberCases(region, 'municipidescripcio')
+        printCountyInformation(update, context, region, positive, negative, total, date)
     else:
         fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid si us plau. Clica a /comarques o /municipis."
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
