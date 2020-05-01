@@ -13,11 +13,15 @@ def updateDatabase():
     data = client.get(dataset_id, limit=LIMIT)
     df = pd.DataFrame.from_dict(data)
     # dataset contains extra characters on those counties finished with 'à'
-    df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
-        "\xa0", "")
-    df['municipidescripcio'] = df['municipidescripcio'].str.replace(
-        "\xa0", "")
-    return df
+    try:
+        df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
+            "\xa0", "")
+        df['municipidescripcio'] = df['municipidescripcio'].str.replace(
+            "\xa0", "")
+        df.to_pickle("./text/dataframe_backup.pkl")
+        return df
+    except KeyError:
+        raise KeyError
 
 
 def updateMaxDate(max_date, date_string):
@@ -33,7 +37,10 @@ def updateMaxDate(max_date, date_string):
 
 # calculates the number of cases for the county
 def getNumberCases(region, descripcio):
-    df = updateDatabase()
+    try:
+        df = updateDatabase()
+    except KeyError:
+        raise KeyError
     df_region = df.loc[df[descripcio] == region]
     total_tests = 0
     positive_cases = 0
@@ -55,8 +62,7 @@ def getNumberCases(region, descripcio):
 def printCountyInformation(update, context, region, positive, probable, total, date):
     msg = region + ":\n" +\
         "El nombre de casos positius és de " + positive + "\n" +\
-        "El nombre de casos sospitosos és de " + probable + "\n" +\
-        "El nombre total de tests que s'han realitzat és de " + total + "\n\n"
+        "El nombre de casos sospitosos és de " + probable + "\n\n"
     if date != 'None':
         msg = msg + "L'última dada és del dia " + date
     context.bot.send_message(chat_id=update.message.chat_id,
@@ -85,15 +91,20 @@ def query(update, context):
     print(update.message.from_user.full_name)
     print(region)
     region, type = typeOfRegion(region)
-    if (type == 0):
-        positive, negative, total, date = getNumberCases(region, 'comarcadescripcio')
-        printCountyInformation(update, context, region, positive, negative, total, date)
-    elif (type == 1):
-        positive, negative, total, date = getNumberCases(region, 'municipidescripcio')
-        printCountyInformation(update, context, region, positive, negative, total, date)
-    else:
+    descripcio = 'None'
+    if type == -1:
         fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid si us plau. Clica a /comarques o /municipis."
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
+    else:
+        if type == 0:
+            descripcio = 'comarcadescripcio'
+        elif type == 1:
+            descripcio = 'municipidescripcio'
+        try:
+            positive, negative, total, date = getNumberCases(region, descripcio)
+            printCountyInformation(update, context, region, positive, negative, total, date)
+        except KeyError:
+            printMaintenance(update, context)
 
 
 # executed when the /comarques command is called
