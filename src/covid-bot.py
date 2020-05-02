@@ -21,7 +21,12 @@ def updateDatabase():
         df.to_pickle("./text/dataframe_backup.pkl")
         return df
     except KeyError:
-        raise KeyError
+        df = pd.read_pickle("./text/dataframe_backup.pkl")
+        df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
+            "\xa0", "")
+        df['municipidescripcio'] = df['municipidescripcio'].str.replace(
+            "\xa0", "")
+        return df
 
 
 # converts date_string into a datetime object and returns the maximum date
@@ -38,10 +43,7 @@ def updateMaxDate(max_date, date_string):
 
 # calculates the number of cases for the region given
 def getNumberCases(region, description):
-    try:
-        df = updateDatabase()
-    except KeyError:
-        raise KeyError
+    df = updateDatabase()
     df_region = df.loc[df[description] == region]
     total_tests = 0
     positive_cases = 0
@@ -85,11 +87,8 @@ def query(update, context):
             descripcio = 'comarcadescripcio'
         elif type == 1:
             descripcio = 'municipidescripcio'
-        try:
-            positive, negative, total, date = getNumberCases(region, descripcio)
-            printCountyInformation(update, context, region, positive, negative, total, date)
-        except KeyError:
-            printMaintenance(update, context)
+        positive, negative, total, date = getNumberCases(region, descripcio)
+        printCountyInformation(update, context, region, positive, negative, total, date)
 
 
 # send a message to the user with the information of covid
