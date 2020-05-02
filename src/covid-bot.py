@@ -49,16 +49,20 @@ def getNumberCases(region, description):
     positive_cases = 0
     probable_cases = 0
     max_date = 'None'
+    max_positive_date = 'None'
     for index, row in df_region.iterrows():
         total_tests += int(row['numcasos'])
         max_date = updateMaxDate(max_date, row['data'])
         if row['resultatcoviddescripcio'] == 'Positiu':
+            max_positive_date = updateMaxDate(max_positive_date, row['data'])
             positive_cases += int(row['numcasos'])
         elif row['resultatcoviddescripcio'] == 'Sospitós':
             probable_cases += int(row['numcasos'])
     if max_date != 'None':
         max_date = max_date.strftime("%d/%m/%Y")
-    return (str(positive_cases), str(probable_cases), str(total_tests), max_date)
+    if max_positive_date != 'None':
+        max_positive_date = max_positive_date.strftime("%d/%m/%Y")
+    return (str(positive_cases), str(probable_cases), str(total_tests), max_date, max_positive_date)
 
 
 # decides which type of region is the region given
@@ -87,15 +91,18 @@ def query(update, context):
             descripcio = 'comarcadescripcio'
         elif type == 1:
             descripcio = 'municipidescripcio'
-        positive, negative, total, date = getNumberCases(region, descripcio)
-        printCountyInformation(update, context, region, positive, negative, total, date)
+        positive, negative, total, date, date_positive = getNumberCases(region, descripcio)
+        printCountyInformation(update, context, region, positive,
+                               negative, total, date, date_positive)
 
 
 # send a message to the user with the information of covid
-def printCountyInformation(update, context, region, positive, probable, total, date):
+def printCountyInformation(update, context, region, positive, probable, total, date, date_positive):
     msg = region + ":\n" +\
         "El nombre de casos positius és de " + positive + "\n" +\
         "El nombre de casos sospitosos és de " + probable + "\n\n"
+    if date_positive != 'None':
+        msg = msg + "L'últim positiu és del dia " + date_positive + "\n"
     if date != 'None':
         msg = msg + "L'última dada és del dia " + date
     context.bot.send_message(chat_id=update.message.chat_id,
