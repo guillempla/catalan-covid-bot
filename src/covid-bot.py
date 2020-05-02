@@ -24,6 +24,7 @@ def updateDatabase():
         raise KeyError
 
 
+# converts date_string into a datetime object and returns the maximum date
 def updateMaxDate(max_date, date_string):
     date_string = date_string[:date_string.find('.')]
     if max_date == 'None':
@@ -35,13 +36,13 @@ def updateMaxDate(max_date, date_string):
     return max_date
 
 
-# calculates the number of cases for the county
-def getNumberCases(region, descripcio):
+# calculates the number of cases for the region given
+def getNumberCases(region, description):
     try:
         df = updateDatabase()
     except KeyError:
         raise KeyError
-    df_region = df.loc[df[descripcio] == region]
+    df_region = df.loc[df[description] == region]
     total_tests = 0
     positive_cases = 0
     probable_cases = 0
@@ -58,23 +59,7 @@ def getNumberCases(region, descripcio):
     return (str(positive_cases), str(probable_cases), str(total_tests), max_date)
 
 
-# send a message to the user with the information of covid
-def printCountyInformation(update, context, region, positive, probable, total, date):
-    msg = region + ":\n" +\
-        "El nombre de casos positius és de " + positive + "\n" +\
-        "El nombre de casos sospitosos és de " + probable + "\n\n"
-    if date != 'None':
-        msg = msg + "L'última dada és del dia " + date
-    context.bot.send_message(chat_id=update.message.chat_id,
-                             text=msg, parse_mode=ParseMode.MARKDOWN)
-
-
-def printMaintenance(update, context):
-    maintenance_text = "La base de dades de la Generalitat de Catalunya està en manteniment. També pots consultar el nombre de tests realitzats al següent link:\n" +\
-        "http://aquas.gencat.cat/ca/actualitat/ultimes-dades-coronavirus/mapa-per-municipis/"
-    context.bot.send_message(chat_id=update.message.chat_id, text=maintenance_text)
-
-
+# decides which type of region is the region given
 def typeOfRegion(region):
     closest_match = difflib.get_close_matches(region, REGIONS, cutoff=0.7)
     if len(closest_match) != 0:
@@ -105,6 +90,24 @@ def query(update, context):
             printCountyInformation(update, context, region, positive, negative, total, date)
         except KeyError:
             printMaintenance(update, context)
+
+
+# send a message to the user with the information of covid
+def printCountyInformation(update, context, region, positive, probable, total, date):
+    msg = region + ":\n" +\
+        "El nombre de casos positius és de " + positive + "\n" +\
+        "El nombre de casos sospitosos és de " + probable + "\n\n"
+    if date != 'None':
+        msg = msg + "L'última dada és del dia " + date
+    context.bot.send_message(chat_id=update.message.chat_id,
+                             text=msg, parse_mode=ParseMode.MARKDOWN)
+
+
+# print a error message when the database is empty
+def printMaintenance(update, context):
+    maintenance_text = "La base de dades de la Generalitat de Catalunya està en manteniment. També pots consultar el nombre de tests realitzats al següent link:\n" +\
+        "http://aquas.gencat.cat/ca/actualitat/ultimes-dades-coronavirus/mapa-per-municipis/"
+    context.bot.send_message(chat_id=update.message.chat_id, text=maintenance_text)
 
 
 # executed when the /comarques command is called
