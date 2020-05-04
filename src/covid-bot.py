@@ -1,68 +1,7 @@
-import os
 import difflib
-import pandas as pd
-from sodapy import Socrata
-from datetime import datetime
+from tests import Tests
 from telegram import ParseMode
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-
-
-# load the tests dataset's client
-def updateDatabase():
-    client = Socrata(dataset_link, socrata_token)
-    data = client.get(dataset_id, limit=LIMIT)
-    df = pd.DataFrame.from_dict(data)
-    # dataset contains extra characters on those counties finished with 'à'
-    try:
-        df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
-            "\xa0", "")
-        df['municipidescripcio'] = df['municipidescripcio'].str.replace(
-            "\xa0", "")
-        df.to_pickle("./text/dataframe_backup.pkl")
-        return df
-    except KeyError:
-        df = pd.read_pickle("./text/dataframe_backup.pkl")
-        df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
-            "\xa0", "")
-        df['municipidescripcio'] = df['municipidescripcio'].str.replace(
-            "\xa0", "")
-        return df
-
-
-# converts date_string into a datetime object and returns the maximum date
-def updateMaxDate(max_date, date_string):
-    date_string = date_string[:date_string.find('.')]
-    if max_date == 'None':
-        max_date = datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
-    else:
-        aux_date = datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
-        if aux_date > max_date:
-            max_date = aux_date
-    return max_date
-
-
-# calculates the number of cases for the region given
-def getNumberCases(region, description):
-    df = updateDatabase()
-    df_region = df.loc[df[description] == region]
-    total_tests = 0
-    positive_cases = 0
-    probable_cases = 0
-    max_date = 'None'
-    max_positive_date = 'None'
-    for index, row in df_region.iterrows():
-        total_tests += int(row['numcasos'])
-        max_date = updateMaxDate(max_date, row['data'])
-        if row['resultatcoviddescripcio'] == 'Positiu':
-            max_positive_date = updateMaxDate(max_positive_date, row['data'])
-            positive_cases += int(row['numcasos'])
-        elif row['resultatcoviddescripcio'] == 'Sospitós':
-            probable_cases += int(row['numcasos'])
-    if max_date != 'None':
-        max_date = max_date.strftime("%d/%m/%Y")
-    if max_positive_date != 'None':
-        max_positive_date = max_positive_date.strftime("%d/%m/%Y")
-    return (str(positive_cases), str(probable_cases), str(total_tests), max_date, max_positive_date)
 
 
 # decides which type of region is the region given
@@ -82,29 +21,28 @@ def query(update, context):
     print(update.message.from_user.full_name)
     print(region)
     region, type = typeOfRegion(region)
-    descripcio = 'None'
+    description = 'None'
     if type == -1:
         fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid si us plau. Clica a /comarques o /municipis."
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
     else:
         if type == 0:
-            descripcio = 'comarcadescripcio'
+            description = 'comarcadescripcio'
         elif type == 1:
-            descripcio = 'municipidescripcio'
-        positive, negative, total, date, date_positive = getNumberCases(region, descripcio)
-        printCountyInformation(update, context, region, positive,
-                               negative, total, date, date_positive)
+            description = 'municipidescripcio'
+        tests = Tests(region, description)
+        printCountyInformation(update, context, tests)
 
 
 # send a message to the user with the information of covid
-def printCountyInformation(update, context, region, positive, probable, total, date, date_positive):
-    msg = region + ":\n" +\
-        "El nombre de casos positius és de " + positive + "\n" +\
-        "El nombre de casos sospitosos és de " + probable + "\n\n"
-    if date_positive != 'None':
-        msg = msg + "L'últim positiu és del dia " + date_positive + "\n"
-    if date != 'None':
-        msg = msg + "L'última dada és del dia " + date
+def printCountyInformation(update, context, tests):
+    msg = tests.region + ":\n" +\
+        "El nombre de casos positius és de " + str(tests.positive_cases) + "\n" +\
+        "El nombre de casos sospitosos és de " + str(tests.probable_cases) + "\n\n"
+    if tests.last_positive != 'None':
+        msg = msg + "L'últim positiu és del dia " + tests.last_positive + "\n"
+    if tests.last_test != 'None':
+        msg = msg + "L'última dada és del dia " + tests.last_test
     context.bot.send_message(chat_id=update.message.chat_id,
                              text=msg, parse_mode=ParseMode.MARKDOWN)
 
@@ -151,12 +89,6 @@ updater = Updater(token=TOKEN, use_context=True)
 COUNTIES = [line.strip() for line in open('./text/counties.txt')]
 MUNICIPALITIES = [line.strip() for line in open('./text/municipalities_complete.txt')]
 REGIONS = [line.strip() for line in open('./text/regions.txt')]
-
-# load the socrata token and the dataset_id
-socrata_token = os.environ.get("SODAPY_APPTOKEN")
-dataset_link = "analisi.transparenciacatalunya.cat"
-dataset_id = "jj6z-iyrp"
-LIMIT = 50000
 
 # when the bot receives a command its functionis executed
 updater.dispatcher.add_handler(CommandHandler('start', start))
