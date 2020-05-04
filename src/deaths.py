@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from sodapy import Socrata
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 class Deaths:
@@ -17,18 +17,28 @@ class Deaths:
 
     # update deaths' dataset
     def updateDatabase(self):
-        client = Socrata(self.dataset_link, None)
-        data = client.get(self.dataset_id, limit=self.limit)
-        df = pd.DataFrame.from_dict(data)
-        # dataset contains extra characters on those counties finished with 'à'
-        try:
-            df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
-                "\xa0", "")
-            df.to_pickle("./text/deaths_backup.pkl")
-            return df
-        except KeyError:
+        f = open("./text/last_update_deaths.txt").read().strip()
+        last_update = datetime.strptime(f, "%Y-%m-%dT%H:%M:%S")
+        if datetime.now()-last_update > timedelta(hours=1):
+            f = open("./text/last_update_deaths.txt", "w")
+            f.write((datetime.now()).strftime("%Y-%m-%dT%H:%M:%S"))
+            f.close()
+            print("updated")
+            client = Socrata(self.dataset_link, None)
+            data = client.get(self.dataset_id, limit=self.limit)
+            df = pd.DataFrame.from_dict(data)
+            # dataset contains extra characters on those counties finished with 'à'
+            try:
+                df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
+                    "\xa0", "")
+                df.to_pickle("./text/deaths_backup.pkl")
+                return df
+            except KeyError:
+                df = pd.read_pickle("./text/deaths_backup.pkl")
+                print("Malament")
+                return df
+        else:
             df = pd.read_pickle("./text/deaths_backup.pkl")
-            print("Malament")
             return df
 
     # converts date_string into a datetime object and returns the maximum date
