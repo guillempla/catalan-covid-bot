@@ -1,5 +1,6 @@
 import difflib
 from tests import Tests
+from deaths import Deaths
 from telegram import ParseMode
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -27,20 +28,27 @@ def query(update, context):
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
     else:
         if type == 0:
-            description = 'comarcadescripcio'
+            deaths = Deaths(region)
+            tests = Tests(region, 'comarcadescripcio')
+            printCountyInformation(update, context, tests, deaths)
         elif type == 1:
-            description = 'municipidescripcio'
-        tests = Tests(region, description)
-        printCountyInformation(update, context, tests)
+            tests = Tests(region, 'municipidescripcio')
+            printCountyInformation(update, context, tests, "None")
 
 
 # send a message to the user with the information of covid
-def printCountyInformation(update, context, tests):
+def printCountyInformation(update, context, tests, deaths):
     msg = tests.region + ":\n" +\
         "El nombre de casos positius és de " + str(tests.positive_cases) + "\n" +\
-        "El nombre de casos sospitosos és de " + str(tests.probable_cases) + "\n\n"
+        "El nombre de casos sospitosos és de " + str(tests.probable_cases) + "\n"
+    if deaths != "None":
+        msg = msg + "El nombre de defuncions és de " + str(deaths.total_deaths) + "\n\n"
+        if deaths.last_death != 'None':
+            msg = msg + "L'última defunció és del dia " + deaths.last_death + "\n"
+
     if tests.last_positive != 'None':
         msg = msg + "L'últim positiu és del dia " + tests.last_positive + "\n"
+
     if tests.last_test != 'None':
         msg = msg + "L'última dada és del dia " + tests.last_test
     context.bot.send_message(chat_id=update.message.chat_id,
