@@ -24,7 +24,7 @@ class Tests:
         try:
             socrata_token = os.environ.get("SODAPY_APPTOKEN")
         except NameError:
-            socrata_token = "None"
+            socrata_token = None
         client = Socrata(self.dataset_link, socrata_token)
         data = client.get(self.dataset_id, limit=self.limit)
         df = pd.DataFrame.from_dict(data)
@@ -34,10 +34,10 @@ class Tests:
                 "\xa0", "")
             df['municipidescripcio'] = df['municipidescripcio'].str.replace(
                 "\xa0", "")
-            df.to_pickle("./text/dataframe_backup.pkl")
+            df.to_pickle("./text/tests_backup.pkl")
             return df
         except KeyError:
-            df = pd.read_pickle("./text/dataframe_backup.pkl")
+            df = pd.read_pickle("./text/tests_backup.pkl")
             print("Malament")
             return df
 
