@@ -61,7 +61,7 @@ class Tests:
             self.total_tests += int(row['numcasos'])
             self.last_test = self.updateMaxDate(self.last_test, row['data'])
             if row['resultatcoviddescripcio'] == 'Positiu':
-                max_positive_date = self.updateMaxDate(self.last_positive, row['data'])
+                self.last_positive = self.updateMaxDate(self.last_positive, row['data'])
                 self.positive_cases += int(row['numcasos'])
             elif row['resultatcoviddescripcio'] == 'Sospitós':
                 self.probable_cases += int(row['numcasos'])
