@@ -1,9 +1,12 @@
-Escriu el nom d'una comarca  o d'un municipi de Catalunya per conèixer el nombre de contagis que hi ha.
+Escriu el nom d'una comarca o d'un municipi de Catalunya per conèixer el nombre de contagis que hi ha.
 
 Per a veure el llistat de comarques clica a /comarques. I per a veure el llistat de municipis clica /municipis.
 
-Les dades estan extretes de la *Generalitat de Catalunya* i es poden trobar al següent enllaç:
+Les dades de positius estan extretes de la *Generalitat de Catalunya* i es poden trobar al següent enllaç:
 https://analisi.transparenciacatalunya.cat/ca/Salut/Registre-de-test-de-COVID-19-realitzats-a-Cataluny/jj6z-iyrp/data#
+
+Les dades de defuncions estan extretes de la *Generalitat de Catalunya* i es poden trobar al següent enllaç:
+https://analisi.transparenciacatalunya.cat/Salut/Registre-de-defuncions-per-COVID-19-a-Catalunya-Se/uqk7-bf9s/data
 
 El codi font d'aquest programa es pot trobar a:
 https://github.com/guillempla/catalan-covid-tests-bot
