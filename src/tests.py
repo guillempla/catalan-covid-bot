@@ -66,7 +66,7 @@ class Tests:
         for index, row in df_region.iterrows():
             self.total_tests += int(row['numcasos'])
             self.last_test = self.updateMaxDate(self.last_test, row['data'])
-            if row['resultatcoviddescripcio'] == 'Positiu':
+            if row['resultatcoviddescripcio'] == 'Positiu PCR' or row['resultatcoviddescripcio'] == 'Positiu per Test Ràpid':
                 self.last_positive = self.updateMaxDate(self.last_positive, row['data'])
                 self.positive_cases += int(row['numcasos'])
             elif row['resultatcoviddescripcio'] == 'Sospitós':
