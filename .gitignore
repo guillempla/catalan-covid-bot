@@ -3,3 +3,6 @@ token.txt
 prova.py
 contrasenya.txt
 covid-bot-prova.py
+plots/*
+plots_accumulated/*
+plots_average/*
