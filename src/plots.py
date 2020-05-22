@@ -8,7 +8,6 @@ from matplotlib.dates import DayLocator, DateFormatter, date2num
 
 class Plots:
     def __init__(self, region, description):
-        print('init_plot')
         self.region = region
         self.description = description
         self.date = np.arange(datetime(2020, 2, 25), datetime.today(),
@@ -56,7 +55,6 @@ class Plots:
         return datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
 
     def calculateTests(self):
-        print('calculate_tests')
         df_tests_region = self.df_tests.loc[self.df_tests[self.description] == self.region]
 
         for index, row in df_tests_region.iterrows():
@@ -68,7 +66,6 @@ class Plots:
                 self.probable_cases[date_index] += int(row['numcasos'])
 
     def calculateDeaths(self):
-        print('calculate_deaths')
         region = self.region
         if self.region == "Aran":
             region = "Val d'Aran"
@@ -86,7 +83,6 @@ class Plots:
         self.deaths_average = self.moving_average(self.deaths, n=4)
 
     def calculateAccumulated(self):
-        print('calculate_accumulated')
         self.positive_accumulated = np.cumsum(self.positive_cases)
         self.probable_accumulated = np.cumsum(self.probable_cases)
         self.deaths_accumulated = np.cumsum(self.deaths)
@@ -131,7 +127,5 @@ class Plots:
         fig.tight_layout()
         # Save
         self.file_path = path + self.region + '.png'
-        print(self.file_path)
         plt.savefig(self.file_path, dpi=100, bbox_inches='tight')
         plt.close()
-        print('close_plot')

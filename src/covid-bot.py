@@ -77,10 +77,8 @@ def plot(update, context):
         description = 'comarcadescripcio'
         if type == 1:
             description = 'municipidescripcio'
-        print(description)
         plot = Plots(region, description)
         path = 'plots_accumulated/' + region + '.png'
-        print(path)
         context.bot.send_photo(chat_id=update.message.chat_id,
                                photo=open(str(path), 'rb'))
 
