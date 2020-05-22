@@ -8,6 +8,7 @@ from matplotlib.dates import DayLocator, DateFormatter, date2num
 
 class Plots:
     def __init__(self, region, description):
+        print('init_plot')
         self.region = region
         self.description = description
         self.date = np.arange(datetime(2020, 2, 25), datetime.today(),
@@ -17,20 +18,21 @@ class Plots:
         self.probable_cases = np.zeros(len(self.date))
         self.deaths = np.zeros(len(self.date))
 
-        self.positive_average = []
-        self.probable_average = []
-        self.deaths_average = []
+        # self.positive_average = np.zeros(len(self.date))
+        # self.probable_average = np.zeros(len(self.date))
+        # self.deaths_average = np.zeros(len(self.date))
 
-        self.positive_accumulated = []
-        self.probable_accumulated = []
-        self.deaths_accumulated = []
+        self.positive_accumulated = np.zeros(len(self.date))
+        self.probable_accumulated = np.zeros(len(self.date))
+        self.deaths_accumulated = np.zeros(len(self.date))
 
         self.df_tests = pd.read_pickle("./text/tests_backup.pkl")
         self.df_deaths = pd.read_pickle("./text/deaths_backup.pkl")
 
         # Calculate data
         self.calculateTests()
-        self.calculateDeaths()
+        if(self.description == 'comarcadescripcio'):
+            self.calculateDeaths()
         # self.calculateAverage()
         self.calculateAccumulated()
 
@@ -38,6 +40,11 @@ class Plots:
         #self.plot(self.date, self.positive_cases, self.deaths, 'plots/')
         self.plot(self.date, self.positive_accumulated,
                   self.deaths_accumulated, 'plots_accumulated/')
+
+        self.file_path = ''
+
+    def getPath(self):
+        return self.file_path
 
     def moving_average(self, a, n=3):
         ret = np.cumsum(a, dtype=float)
@@ -49,6 +56,7 @@ class Plots:
         return datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
 
     def calculateTests(self):
+        print('calculate_tests')
         df_tests_region = self.df_tests.loc[self.df_tests[self.description] == self.region]
 
         for index, row in df_tests_region.iterrows():
@@ -60,6 +68,7 @@ class Plots:
                 self.probable_cases[date_index] += int(row['numcasos'])
 
     def calculateDeaths(self):
+        print('calculate_deaths')
         region = self.region
         if self.region == "Aran":
             region = "Val d'Aran"
@@ -77,11 +86,13 @@ class Plots:
         self.deaths_average = self.moving_average(self.deaths, n=4)
 
     def calculateAccumulated(self):
+        print('calculate_accumulated')
         self.positive_accumulated = np.cumsum(self.positive_cases)
         self.probable_accumulated = np.cumsum(self.probable_cases)
         self.deaths_accumulated = np.cumsum(self.deaths)
 
     def plot(self, X, Y, Z, path):
+        print('init_plotting')
         # Create plot
         fig, ax = plt.subplots()
 
@@ -97,7 +108,8 @@ class Plots:
 
         # Add data
         ax.plot(X, Y, marker='', color='red', linewidth=1.8, label='Casos Positius')
-        ax.plot(X, Z, marker='', color='black', linewidth=1.8, label='Defuncions')
+        if (self.description == 'comarcadescripcio'):
+            ax.plot(X, Z, marker='', color='black', linewidth=1.8, label='Defuncions')
 
         # # Set fases date
         # fases = {
@@ -117,8 +129,9 @@ class Plots:
 
         # Use tight layout
         fig.tight_layout()
-
         # Save
-        file_name = path + self.region + '.png'
-        plt.savefig(file_name, dpi=200, bbox_inches='tight')
+        self.file_path = path + self.region + '.png'
+        print(self.file_path)
+        plt.savefig(self.file_path, dpi=100, bbox_inches='tight')
         plt.close()
+        print('close_plot')
