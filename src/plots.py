@@ -60,10 +60,11 @@ class Plots:
                 self.probable_cases[date_index] += int(row['numcasos'])
 
     def calculateDeaths(self):
+        region = self.region
         if self.region == "Aran":
-            self.region = "Val d'Aran"
+            region = "Val d'Aran"
 
-        df_deaths_region = self.df_deaths.loc[self.df_deaths[self.description] == self.region]
+        df_deaths_region = self.df_deaths.loc[self.df_deaths[self.description] == region]
 
         for index, row in df_deaths_region.iterrows():
             date_time = self.stringToDatetime(row['exitusdata'])
@@ -85,7 +86,7 @@ class Plots:
         fig, ax = plt.subplots()
 
         # Set the style
-        plt.style.use(u'seaborn')
+        # plt.style.use(u'seaborn')
 
         # Rotate datetimes
         plt.setp(ax.get_xticklabels(), rotation=30, ha='right')
@@ -95,14 +96,27 @@ class Plots:
         ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
 
         # Add data
-        ax.plot(X, Y, marker='', color='cyan', linewidth=2, label='Casos Positius')
-        ax.plot(X, Z, marker='', color='black', linewidth=2, label='Defuncions')
+        ax.plot(X, Y, marker='', color='red', linewidth=1.8, label='Casos Positius')
+        ax.plot(X, Z, marker='', color='black', linewidth=1.8, label='Defuncions')
+
+        # # Set fases date
+        # fases = {
+        #     "Inici Confinament": datetime(2020, 3, 13),
+        #     "Fase 1": datetime(2020, 5, 11)
+        # }
+        #
+        # # Print fases
+        # for f in fases:
+        #     plt.axvline(x=fases[f], label=f, color='grey', linewidth=1)
 
         # Labels
         ax.set_title(self.region)
         ax.set_xlabel('Data')
         ax.set_ylabel('Casos')
         ax.legend(loc='best', framealpha=0.5)
+
+        # Use tight layout
+        fig.tight_layout()
 
         # Save
         file_name = path + self.region + '.png'
