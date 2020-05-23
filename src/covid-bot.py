@@ -23,18 +23,25 @@ def query(update, context):
     print(update.message.from_user.full_name)
     print(region)
     region, type = typeOfRegion(region)
+    deaths = 'None'
     description = 'None'
     if type == -1:
-        fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid si us plau. Clica a /comarques o /municipis."
+        fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid, si us plau. Clica a /comarques o /municipis."
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
     else:
         if type == 0:
             deaths = Deaths(region)
-            tests = Tests(region, 'comarcadescripcio')
-            printCountyInformation(update, context, tests, deaths)
+            description = 'comarcadescripcio'
         elif type == 1:
-            tests = Tests(region, 'municipidescripcio')
-            printCountyInformation(update, context, tests, "None")
+            description = 'municipidescripcio'
+
+        tests = Tests(region, description)
+        printCountyInformation(update, context, tests, deaths)
+
+        plot = Plots(region, description)
+        path = 'plots_accumulated/' + region + '.png'
+        context.bot.send_photo(chat_id=update.message.chat_id,
+                               photo=open(str(path), 'rb'))
 
 
 # send a message to the user with the information of covid
@@ -64,27 +71,6 @@ def printMaintenance(update, context):
 
 
 # executed when the /comarques command is called
-def plot(update, context):
-    region = update.message.text[8:]  # delete "/grafic "
-    print(update.message.from_user.full_name)
-    print('Grafic '+region)
-    region, type = typeOfRegion(region)
-    description = 'None'
-    if type == -1:
-        fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid si us plau. Clica a /comarques o /municipis."
-        context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
-    else:
-        description = 'comarcadescripcio'
-        if type == 1:
-            description = 'municipidescripcio'
-        plot = Plots(region, description)
-        path = 'plots_accumulated/' + region + '.png'
-        context.bot.send_photo(chat_id=update.message.chat_id,
-                               photo=open(str(path), 'rb'))
-
-# executed when the /comarques command is called
-
-
 def comarques(update, context):
     counties_text = open('./text/comarques.txt').read()
     context.bot.send_message(chat_id=update.message.chat_id,
@@ -125,7 +111,6 @@ updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('help', help))
 updater.dispatcher.add_handler(CommandHandler('comarques', comarques))
 updater.dispatcher.add_handler(CommandHandler('municipis', municipis))
-updater.dispatcher.add_handler(CommandHandler('grafic', plot))
 
 # handling callbacks functions to the commands
 updater.dispatcher.add_handler(MessageHandler(Filters.text, query))
