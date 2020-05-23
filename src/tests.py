@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 class Tests:
 
     def __init__(self, region, description):
-        self.limit = 50000
+        self.limit = 80000
         self.dataset_link = "analisi.transparenciacatalunya.cat"
         self.dataset_id = "jj6z-iyrp"
         self.region = region
@@ -62,6 +62,9 @@ class Tests:
     def calculateInformation(self):
         df = self.updateDatabase()
         df_region = df.loc[df[self.description] == self.region]
+
+        if self.region == "Catalunya":
+            df_region = df
 
         for index, row in df_region.iterrows():
             self.total_tests += int(row['numcasos'])

@@ -60,6 +60,9 @@ class Deaths:
             self.region = "Val d'Aran"
         df_region = df.loc[df['comarcadescripcio'] == self.region]
 
+        if self.region == "Catalunya":
+            df_region = df
+
         for index, row in df_region.iterrows():
             self.total_deaths += int(row['numexitus'])
             self.last_death = self.updateMaxDate(self.last_death, row['exitusdata'])
