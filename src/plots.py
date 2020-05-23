@@ -30,7 +30,7 @@ class Plots:
 
         # Calculate data
         self.calculateTests()
-        if(self.description == 'comarcadescripcio'):
+        if (self.description == 'comarcadescripcio'):
             self.calculateDeaths()
         # self.calculateAverage()
         self.calculateAccumulated()
@@ -41,9 +41,6 @@ class Plots:
                   self.deaths_accumulated, 'plots_accumulated/')
 
         self.file_path = ''
-
-    def getPath(self):
-        return self.file_path
 
     def moving_average(self, a, n=3):
         ret = np.cumsum(a, dtype=float)
@@ -58,7 +55,7 @@ class Plots:
         df_tests_region = self.df_tests.loc[self.df_tests[self.description] == self.region]
 
         if self.region == "Catalunya":
-            df_tests_region = df
+            df_tests_region = self.df_tests
 
         for index, row in df_tests_region.iterrows():
             date_time = self.stringToDatetime(row['data'])
@@ -76,7 +73,7 @@ class Plots:
         df_deaths_region = self.df_deaths.loc[self.df_deaths[self.description] == region]
 
         if self.region == "Catalunya":
-            df_deaths_region = df
+            df_deaths_region = self.df_deaths
 
         for index, row in df_deaths_region.iterrows():
             date_time = self.stringToDatetime(row['exitusdata'])
@@ -105,10 +102,6 @@ class Plots:
         ax.xaxis.set_major_locator(DayLocator(interval=5))
         ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
 
-        # X-axis
-        # ax.xaxis.set_major_locator(DayLocator())
-        # ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
-
         # Add data
         ax.plot(X, Y, marker='', color='red', linewidth=1.8, label='Casos Positius')
         if (self.description == 'comarcadescripcio'):
@@ -123,7 +116,6 @@ class Plots:
         # # Print fases
         # for f in fases:
         #     plt.axvline(x=fases[f], label=f, color='grey', linewidth=1)
-
         # Labels
         ax.set_title(self.region)
         ax.set_xlabel('Data')
