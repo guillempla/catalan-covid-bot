@@ -10,7 +10,7 @@ class Plots:
     def __init__(self, region, description):
         self.region = region
         self.description = description
-        self.date = np.arange(datetime(2020, 2, 25), datetime.today(),
+        self.date = np.arange(datetime(2020, 3, 3), datetime.today(),
                               timedelta(days=1)).astype(datetime)
 
         self.positive_cases = np.zeros(len(self.date))
@@ -57,6 +57,9 @@ class Plots:
     def calculateTests(self):
         df_tests_region = self.df_tests.loc[self.df_tests[self.description] == self.region]
 
+        if self.region == "Catalunya":
+            df_tests_region = df
+
         for index, row in df_tests_region.iterrows():
             date_time = self.stringToDatetime(row['data'])
             date_index, = np.where(self.date == date_time)
@@ -71,6 +74,9 @@ class Plots:
             region = "Val d'Aran"
 
         df_deaths_region = self.df_deaths.loc[self.df_deaths[self.description] == region]
+
+        if self.region == "Catalunya":
+            df_deaths_region = df
 
         for index, row in df_deaths_region.iterrows():
             date_time = self.stringToDatetime(row['exitusdata'])
@@ -88,19 +94,20 @@ class Plots:
         self.deaths_accumulated = np.cumsum(self.deaths)
 
     def plot(self, X, Y, Z, path):
-        print('init_plotting')
+        # Set the style
+        plt.style.use(u'seaborn')
+
         # Create plot
         fig, ax = plt.subplots()
 
-        # Set the style
-        # plt.style.use(u'seaborn')
-
         # Rotate datetimes
         plt.setp(ax.get_xticklabels(), rotation=30, ha='right')
+        ax.xaxis.set_major_locator(DayLocator(interval=5))
+        ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
 
         # X-axis
         # ax.xaxis.set_major_locator(DayLocator())
-        ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+        # ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
 
         # Add data
         ax.plot(X, Y, marker='', color='red', linewidth=1.8, label='Casos Positius')
@@ -127,5 +134,5 @@ class Plots:
         fig.tight_layout()
         # Save
         self.file_path = path + self.region + '.png'
-        plt.savefig(self.file_path, dpi=100, bbox_inches='tight')
+        plt.savefig(self.file_path, dpi=150, bbox_inches='tight')
         plt.close()
