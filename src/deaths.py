@@ -19,7 +19,7 @@ class Deaths:
     def updateDatabase(self):
         f = open("./text/last_update_deaths.txt").read().strip()
         last_update = datetime.strptime(f, "%Y-%m-%dT%H:%M:%S")
-        if datetime.now()-last_update > timedelta(hours=1):
+        if datetime.now()-last_update > timedelta(hours=2):
             f = open("./text/last_update_deaths.txt", "w")
             f.write((datetime.now()).strftime("%Y-%m-%dT%H:%M:%S"))
             f.close()
@@ -40,6 +40,18 @@ class Deaths:
         else:
             df = pd.read_pickle("./text/deaths_backup.pkl")
             return df
+
+    def checkDataIntegrity(self, df):
+        try:
+            df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
+                "\xa0", "")
+        except KeyError:
+            return False
+        df_noguera = df.loc[df['comarcadescripcio'] == 'Noguera']
+        df_jussa = df.loc[df['comarcadescripcio'] == 'Pallars Jussà']
+        if len(df_noguera) < 15 or len(df_jussa) < 10:
+            return False
+        return True
 
     # converts date_string into a datetime object and returns the maximum date
     def updateMaxDate(self, date, date_string):

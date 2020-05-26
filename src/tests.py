@@ -23,7 +23,7 @@ class Tests:
     def updateDatabase(self):
         f = open("./text/last_update_tests.txt").read().strip()
         last_update = datetime.strptime(f, "%Y-%m-%dT%H:%M:%S")
-        if datetime.now()-last_update > timedelta(hours=1):
+        if datetime.now()-last_update > timedelta(hours=2):
             f = open("./text/last_update_tests.txt", "w")
             f.write((datetime.now()).strftime("%Y-%m-%dT%H:%M:%S"))
             f.close()
@@ -31,15 +31,14 @@ class Tests:
             client = Socrata(self.dataset_link, None)
             data = client.get(self.dataset_id, limit=self.limit)
             df = pd.DataFrame.from_dict(data)
-            # dataset contains extra characters on those counties finished with 'à'
-            try:
+            if self.checkDataIntegrity(df):
                 df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
                     "\xa0", "")
                 df['municipidescripcio'] = df['municipidescripcio'].str.replace(
                     "\xa0", "")
                 df.to_pickle("./text/tests_backup.pkl")
                 return df
-            except KeyError:
+            else:
                 df = pd.read_pickle("./text/tests_backup.pkl")
                 print("Malament")
                 return df
@@ -47,7 +46,22 @@ class Tests:
             df = pd.read_pickle("./text/tests_backup.pkl")
             return df
 
+    def checkDataIntegrity(self, df):
+        try:
+            df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
+                "\xa0", "")
+            df['municipidescripcio'] = df['municipidescripcio'].str.replace(
+                "\xa0", "")
+        except KeyError:
+            return False
+        df_sort = df.loc[df['municipidescripcio'] == 'Sort']
+        df_jussa = df.loc[df['comarcadescripcio'] == 'Pallars Jussà']
+        if len(df_sort) < 25 or len(df_jussa) < 100:
+            return False
+        return True
+
     # converts date_string into a datetime object and returns the maximum date
+
     def updateMaxDate(self, date, date_string):
         date_string = date_string[:date_string.find('.')]
         if date == 'None':
