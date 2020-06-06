@@ -122,6 +122,11 @@ class Plots:
         ax.set_ylabel('Casos')
         ax.legend(loc='best', framealpha=0.5)
 
+        plt.figtext(0.03, 0, "Font: Dades Obertes de la Generalitat de Catalunya",
+                    ha="left", fontsize=7)
+        plt.figtext(0.72, 0, "Bot de Telegram: t.me/CatalunyaCOVID19bot",
+                    ha="left", fontsize=7)
+
         # Use tight layout
         fig.tight_layout()
         # Save
