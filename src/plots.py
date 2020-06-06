@@ -98,8 +98,8 @@ class Plots:
         fig, ax = plt.subplots()
 
         # Rotate datetimes
-        plt.setp(ax.get_xticklabels(), rotation=30, ha='right')
-        ax.xaxis.set_major_locator(DayLocator(interval=5))
+        plt.setp(ax.get_xticklabels(), rotation=45, ha='right')
+        ax.xaxis.set_major_locator(DayLocator(interval=3))
         ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
 
         # Add data
