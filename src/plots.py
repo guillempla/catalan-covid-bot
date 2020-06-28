@@ -102,6 +102,9 @@ class Plots:
         ax.xaxis.set_major_locator(DayLocator(interval=3))
         ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
 
+        # Set the y axis number of ticks
+        ax.locator_params(nbins=15, axis='y')
+
         # Add data
         ax.plot(X, Y, marker='', color='red', linewidth=1.8, label='Casos Positius')
         if (self.description == 'comarcadescripcio'):
