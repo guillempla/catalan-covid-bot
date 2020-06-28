@@ -19,7 +19,7 @@ class Deaths:
     def updateDatabase(self):
         f = open("./text/last_update_deaths.txt").read().strip()
         last_update = datetime.strptime(f, "%Y-%m-%dT%H:%M:%S")
-        if datetime.now()-last_update > timedelta(hours=2):
+        if datetime.now()-last_update > timedelta(hours=3):
             f = open("./text/last_update_deaths.txt", "w")
             f.write((datetime.now()).strftime("%Y-%m-%dT%H:%M:%S"))
             f.close()
