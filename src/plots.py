@@ -35,8 +35,8 @@ class Plots:
         # self.calculateAverage()
         self.calculateAccumulated()
 
-        #self.plot(self.date[3:], self.positive_average, self.deaths_average, 'plots_average/')
-        #self.plot(self.date, self.positive_cases, self.deaths, 'plots/')
+        # self.plot(self.date[3:], self.positive_average, self.deaths_average, 'plots_average/')
+        # self.plot(self.date, self.positive_cases, self.deaths, 'plots/')
         self.plot(self.date, self.positive_accumulated,
                   self.deaths_accumulated, 'plots_accumulated/')
 
@@ -110,29 +110,33 @@ class Plots:
         if (self.description == 'comarcadescripcio'):
             ax.plot(X, Z, marker='', color='black', linewidth=1.8, label='Defuncions')
 
-        # # Set fases date
-        # fases = {
-        #     "Inici Confinament": datetime(2020, 3, 13),
-        #     "Fase 1": datetime(2020, 5, 11)
-        # }
-        #
-        # # Print fases
-        # for f in fases:
-        #     plt.axvline(x=fases[f], label=f, color='grey', linewidth=1)
+        # Set fases date
+        fases = {
+            "Inici Confinament": datetime(2020, 3, 13),
+            "Fase de Represa": datetime(2020, 6, 18)
+        }
+
+        # Print fases
+        for f in fases:
+            ax.axvline(x=fases[f], color='grey', linewidth=1, linestyle='--')
+
+        # ax.annotate('BigNews3', xy=('2020-06-05 16:30:00', ymax), xytext=(0, 25), textcoords='offset points',
+                    rotation = 90, va = 'bottom', ha = 'center', annotation_clip = False, arrowprops = arrowprops)
+
         # Labels
         ax.set_title(self.region)
         ax.set_xlabel('Data')
         ax.set_ylabel('Casos')
-        ax.legend(loc='best', framealpha=0.5)
+        ax.legend(loc = 'upper left', framealpha = 0.5)
 
         plt.figtext(0.03, 0, "Font: Dades Obertes de la Generalitat de Catalunya",
-                    ha="left", fontsize=7)
+                    ha = "left", fontsize = 7)
         plt.figtext(0.72, 0, "Bot de Telegram: t.me/CatalunyaCOVID19bot",
-                    ha="left", fontsize=7)
+                    ha = "left", fontsize = 7)
 
         # Use tight layout
         fig.tight_layout()
         # Save
-        self.file_path = path + self.region + '.png'
-        plt.savefig(self.file_path, dpi=150, bbox_inches='tight')
+        self.file_path=path + self.region + '.png'
+        plt.savefig(self.file_path, dpi = 150, bbox_inches = 'tight')
         plt.close()
