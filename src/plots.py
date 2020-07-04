@@ -120,23 +120,22 @@ class Plots:
         for f in fases:
             ax.axvline(x=fases[f], color='grey', linewidth=1, linestyle='--')
 
-        # ax.annotate('BigNews3', xy=('2020-06-05 16:30:00', ymax), xytext=(0, 25), textcoords='offset points',
-                    rotation = 90, va = 'bottom', ha = 'center', annotation_clip = False, arrowprops = arrowprops)
+        # ax.annotate('BigNews3', xy=('2020-06-05 16:30:00', ymax), xytext=(0, 25), textcoords='offset points', rotation = 90, va = 'bottom', ha = 'center', annotation_clip = False, arrowprops = arrowprops)
 
         # Labels
         ax.set_title(self.region)
         ax.set_xlabel('Data')
         ax.set_ylabel('Casos')
-        ax.legend(loc = 'upper left', framealpha = 0.5)
+        ax.legend(loc='upper left', framealpha=0.5)
 
         plt.figtext(0.03, 0, "Font: Dades Obertes de la Generalitat de Catalunya",
-                    ha = "left", fontsize = 7)
+                    ha="left", fontsize=7)
         plt.figtext(0.72, 0, "Bot de Telegram: t.me/CatalunyaCOVID19bot",
-                    ha = "left", fontsize = 7)
+                    ha="left", fontsize=7)
 
         # Use tight layout
         fig.tight_layout()
         # Save
-        self.file_path=path + self.region + '.png'
-        plt.savefig(self.file_path, dpi = 150, bbox_inches = 'tight')
+        self.file_path = path + self.region + '.png'
+        plt.savefig(self.file_path, dpi=150, bbox_inches='tight')
         plt.close()
