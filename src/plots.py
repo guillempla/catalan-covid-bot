@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 from datetime import datetime, timedelta, MINYEAR
+from pandas.plotting import register_matplotlib_converters
 from matplotlib.dates import DayLocator, DateFormatter, date2num
 
 
@@ -96,6 +97,9 @@ class Plots:
 
         # Create plot
         fig, ax = plt.subplots()
+
+        # Register convertes
+        register_matplotlib_converters()
 
         # Rotate datetimes
         plt.setp(ax.get_xticklabels(), rotation=45, ha='right')
