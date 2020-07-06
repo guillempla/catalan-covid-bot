@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 from datetime import datetime, timedelta, MINYEAR
 from pandas.plotting import register_matplotlib_converters
-from matplotlib.dates import DayLocator, DateFormatter, date2num
+from matplotlib.dates import DayLocator, MonthLocator, YearLocator, DateFormatter, date2num
 
 
 class Plots:
@@ -101,10 +101,17 @@ class Plots:
         # Register convertes
         register_matplotlib_converters()
 
+        # ax.xaxis.set_minor_locator(DayLocator())
+        # ax.xaxis.set_minor_formatter(DateFormatter(' %d'))
+        # ax.xaxis.set_major_locator(MonthLocator())
+        # ax.xaxis.set_major_formatter(DateFormatter('\n%b'))
+
         # Rotate datetimes
-        plt.setp(ax.get_xticklabels(), rotation=45, ha='right')
+        plt.setp(ax.get_xticklabels(), rotation=90, ha='right')
         ax.xaxis.set_major_locator(DayLocator(interval=3))
-        ax.xaxis.set_major_formatter(DateFormatter('%d/%m/%Y'))
+        ax.xaxis.set_major_formatter(DateFormatter('%d'))
+        ax.xaxis.set_minor_locator(MonthLocator())
+        ax.xaxis.set_minor_formatter(DateFormatter('\n\n%b'))
 
         # Set the y axis number of ticks
         ax.locator_params(nbins=15, axis='y')
