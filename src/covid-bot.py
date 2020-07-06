@@ -2,6 +2,7 @@ import difflib
 from plots import Plots
 from tests import Tests
 from deaths import Deaths
+from datetime import datetime
 from telegram import ParseMode
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
@@ -20,8 +21,7 @@ def typeOfRegion(region):
 # executed when the bot receives a message
 def query(update, context):
     region = update.message.text
-    print(update.message.from_user.full_name)
-    print(region)
+    print(update.message.from_user.full_name + ": " + region + " " + str(datetime.now()))
     region, type = typeOfRegion(region)
     deaths = 'None'
     description = 'None'
