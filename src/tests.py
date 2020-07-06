@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 class Tests:
 
     def __init__(self, region, description):
-        self.limit = 80000
+        self.limit = 300000
         self.dataset_link = "analisi.transparenciacatalunya.cat"
         self.dataset_id = "jj6z-iyrp"
         self.region = region
