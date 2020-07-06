@@ -114,17 +114,11 @@ class Plots:
         if (self.description == 'comarcadescripcio'):
             ax.plot(X, Z, marker='', color='black', linewidth=1.8, label='Defuncions')
 
-        # Set fases date
-        fases = {
-            "Inici Confinament": datetime(2020, 3, 13),
-            "Fase de Represa": datetime(2020, 6, 18)
-        }
-
         # Print fases
-        for f in fases:
-            ax.axvline(x=fases[f], color='grey', linewidth=1, linestyle='--')
-
-        # ax.annotate('BigNews3', xy=('2020-06-05 16:30:00', ymax), xytext=(0, 25), textcoords='offset points', rotation = 90, va = 'bottom', ha = 'center', annotation_clip = False, arrowprops = arrowprops)
+        ax.axvline(x=datetime(2020, 3, 13), label="Inici Confinament",
+                   color='grey', linewidth=1.75, linestyle=':')
+        ax.axvline(x=datetime(2020, 6, 18), label="Fase de Represa",
+                   color='grey', linewidth=1.25, linestyle='--')
 
         # Labels
         ax.set_title(self.region)
