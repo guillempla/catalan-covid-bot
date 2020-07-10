@@ -61,7 +61,6 @@ class Tests:
         return True
 
     # converts date_string into a datetime object and returns the maximum date
-
     def updateMaxDate(self, date, date_string):
         date_string = date_string[:date_string.find('.')]
         if date == 'None':
@@ -72,6 +71,17 @@ class Tests:
                 date = aux_date
         return date
 
+    # Returns true if df is a positive result, otherwise returns false
+    def positive(self, df):
+        column = 'resultatcoviddescripcio'
+        return (df[column] == 'Positiu PCR') | (df[column] ==
+                                                'Positiu per Test Ràpid') | (df[column] == 'Positiu per ELISA') | (df[column] == 'Epidemiològic')
+
+    # Returns true if df is a positive result, otherwise returns false
+    def negative(self, df):
+        column = 'resultatcoviddescripcio'
+        return df[column] == 'Sospitós'
+
     # calculates the number of cases for the region given
     def calculateInformation(self):
         df = self.updateDatabase()
@@ -80,14 +90,16 @@ class Tests:
         if self.region == "Catalunya":
             df_region = df
 
-        for index, row in df_region.iterrows():
-            self.total_tests += int(row['numcasos'])
-            self.last_test = self.updateMaxDate(self.last_test, row['data'])
-            if row['resultatcoviddescripcio'] == 'Positiu PCR' or row['resultatcoviddescripcio'] == 'Positiu per Test Ràpid':
-                self.last_positive = self.updateMaxDate(self.last_positive, row['data'])
-                self.positive_cases += int(row['numcasos'])
-            elif row['resultatcoviddescripcio'] == 'Sospitós':
-                self.probable_cases += int(row['numcasos'])
+        self.total_tests = df_region['numcasos'].astype(int).sum()
+        self.last_test = df_region['data'].max()
+        self.last_test = datetime.strptime(
+            self.last_test[:self.last_test.find('.')], "%Y-%m-%dT%H:%M:%S")
+
+        df_positives = df_region.loc[self.positive]
+        self.positive_cases = df_positives['numcasos'].astype(int).sum()
+
+        df_probable = df_region.loc[self.negative]
+        self.probable_cases = df_probable['numcasos'].astype(int).sum()
 
         if self.last_test != 'None':
             self.last_test = self.last_test.strftime("%d/%m/%Y")
