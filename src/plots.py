@@ -48,6 +48,12 @@ class Plots:
         ret[n:] = ret[n:] - ret[:-n]
         return ret[n - 1:] / n
 
+    def positive(self, data):
+        return data == 'Positiu PCR' or data == 'Positiu per Test Ràpid' or data == 'Positiu per ELISA' or data == 'Epidemiològic'
+
+    def negative(self, data):
+        return data == 'Sospitós'
+
     def stringToDatetime(self, date_string):
         date_string = date_string[:date_string.find('.')]
         return datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
@@ -61,9 +67,9 @@ class Plots:
         for index, row in df_tests_region.iterrows():
             date_time = self.stringToDatetime(row['data'])
             date_index, = np.where(self.date == date_time)
-            if row['resultatcoviddescripcio'] == 'Positiu PCR' or row['resultatcoviddescripcio'] == 'Positiu per Test Ràpid':
+            if self.positive(row['resultatcoviddescripcio']):
                 self.positive_cases[date_index] += int(row['numcasos'])
-            elif row['resultatcoviddescripcio'] == 'Sospitós':
+            elif self.negative(row['resultatcoviddescripcio']):
                 self.probable_cases[date_index] += int(row['numcasos'])
 
     def calculateDeaths(self):
