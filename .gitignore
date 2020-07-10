@@ -1,8 +1,7 @@
 *.pyc
 token.txt
-prova.py
+*prova*
 contrasenya.txt
-covid-bot-prova.py
 plots/*
 plots_accumulated/*
 plots_average/*
