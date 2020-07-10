@@ -115,9 +115,9 @@ class Plots:
         # Rotate datetimes
         plt.setp(ax.get_xticklabels(), rotation=90, ha='right')
         ax.xaxis.set_major_locator(DayLocator(interval=3))
-        ax.xaxis.set_major_formatter(DateFormatter('%d'))
-        ax.xaxis.set_minor_locator(MonthLocator())
-        ax.xaxis.set_minor_formatter(DateFormatter('\n\n%b'))
+        ax.xaxis.set_major_formatter(DateFormatter('%d/%m'))
+        # ax.xaxis.set_minor_locator(MonthLocator())
+        # ax.xaxis.set_minor_formatter(DateFormatter('\n\n%b'))
 
         # Set the y axis number of ticks
         ax.locator_params(nbins=15, axis='y')
