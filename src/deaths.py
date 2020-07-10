@@ -75,9 +75,11 @@ class Deaths:
         if self.region == "Catalunya":
             df_region = df
 
-        for index, row in df_region.iterrows():
-            self.total_deaths += int(row['numexitus'])
-            self.last_death = self.updateMaxDate(self.last_death, row['exitusdata'])
+        self.total_deaths = df_region['numexitus'].astype(int).sum()
+        if (self.total_deaths > 0):
+            self.last_death = df_region['exitusdata'].max()
+            self.last_death = datetime.strptime(
+                self.last_death[:self.last_death.find('.')], "%Y-%m-%dT%H:%M:%S")
 
         if self.last_death != 'None':
             self.last_death = self.last_death.strftime("%d/%m/%Y")
