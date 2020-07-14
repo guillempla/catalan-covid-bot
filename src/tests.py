@@ -90,23 +90,21 @@ class Tests:
         if self.region == "Catalunya":
             df_region = df
 
-        self.total_tests = df_region['numcasos'].astype(int).sum()
-        self.last_test = df_region['data'].max()
-        self.last_test = datetime.strptime(
-            self.last_test[:self.last_test.find('.')], "%Y-%m-%dT%H:%M:%S")
-
         df_positives = df_region.loc[self.positive]
-        self.positive_cases = df_positives['numcasos'].astype(int).sum()
-
-        self.last_positive = df_positives['data'].max()
-        self.last_positive = datetime.strptime(
-            self.last_positive[:self.last_positive.find('.')], "%Y-%m-%dT%H:%M:%S")
-
         df_probable = df_region.loc[self.negative]
+
+        self.total_tests = df_region['numcasos'].astype(int).sum()
+        self.positive_cases = df_positives['numcasos'].astype(int).sum()
         self.probable_cases = df_probable['numcasos'].astype(int).sum()
 
-        if self.last_test != 'None':
+        if self.total_tests > 0:
+            self.last_test = df_region['data'].max()
+            self.last_test = datetime.strptime(
+                self.last_test[:self.last_test.find('.')], "%Y-%m-%dT%H:%M:%S")
             self.last_test = self.last_test.strftime("%d/%m/%Y")
 
-        if self.last_positive != 'None':
+        if self.positive_cases > 0:
+            self.last_positive = df_positives['data'].max()
+            self.last_positive = datetime.strptime(
+                self.last_positive[:self.last_positive.find('.')], "%Y-%m-%dT%H:%M:%S")
             self.last_positive = self.last_positive.strftime("%d/%m/%Y")
