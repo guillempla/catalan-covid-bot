@@ -12,12 +12,20 @@ All data can be found at `dades obertes catalunya` in the [Tests](https://analis
 
 These instructions will get you a copy of the project up and running on  your local machine for development and testing purposes.
 
+### Clone the project
+
+You can clone the project using:
+
+```bash
+git clone https://github.com/guillempla/catalan-covid-tests-bot.git
+```
+
 ### Prerequisites
 
 You can install the necessary `python3` packages with:
 
 ```bash
-$ pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Running
@@ -25,7 +33,7 @@ $ pip3 install -r requirements.txt
 You can run the bot with:
 
 ```bash
-$ python3 src/covid-bot.py
+python3 src/covid-bot.py
 ```
 
 ![](./img/readme_images.png)
@@ -43,4 +51,4 @@ $ python3 src/covid-bot.py
 
 ## Author
 
-* **Guillem Pla Bertran** - [guillem.pla@est.fib.upc.edu]()
+* **Guillem Pla Bertran** - [guillempla@protonmail.com]()
