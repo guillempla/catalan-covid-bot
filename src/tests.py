@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 class Tests:
 
     def __init__(self, region, description):
-        self.limit = 300000
+        self.limit = 400000
         self.dataset_link = "analisi.transparenciacatalunya.cat"
         self.dataset_id = "jj6z-iyrp"
         self.region = region
@@ -23,7 +23,7 @@ class Tests:
     def updateDatabase(self):
         f = open("./text/last_update_tests.txt").read().strip()
         last_update = datetime.strptime(f, "%Y-%m-%dT%H:%M:%S")
-        if datetime.now()-last_update > timedelta(hours=3):
+        if datetime.now()-last_update > timedelta(hours=6):
             f = open("./text/last_update_tests.txt", "w")
             f.write((datetime.now()).strftime("%Y-%m-%dT%H:%M:%S"))
             f.close()
