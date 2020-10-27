@@ -1,6 +1,6 @@
 import difflib
 import pandas as pd
-from prova_plots import Plots
+from plots import Plots
 from tests import Tests
 from deaths import Deaths
 from datetime import datetime
