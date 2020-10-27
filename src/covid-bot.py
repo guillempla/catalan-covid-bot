@@ -1,5 +1,6 @@
 import difflib
-from plots import Plots
+import pandas as pd
+from prova_plots import Plots
 from tests import Tests
 from deaths import Deaths
 from datetime import datetime
@@ -25,6 +26,7 @@ def query(update, context):
     region, type = typeOfRegion(region)
     deaths = 'None'
     description = 'None'
+    population = 1
     if type == -1:
         fail_text = "Escriu el nom d'un municipi o d'una comarca vàlid, si us plau. Clica a /comarques o /municipis."
         context.bot.send_message(chat_id=update.message.chat_id, text=fail_text)
@@ -32,16 +34,25 @@ def query(update, context):
         if type == 0:
             deaths = Deaths(region)
             description = 'comarcadescripcio'
+            row = counties.loc[counties['comarca'] == region]
+            population = int(row.habitants)
         elif type == 1:
             description = 'municipidescripcio'
 
         tests = Tests(region, description)
         printCountyInformation(update, context, tests, deaths)
 
-        plot = Plots(region, description)
+        if region == 'Catalunya':
+            population=7800000
+
+        plot = Plots(region, population, description)
         path = 'plots_accumulated/' + region + '.png'
         context.bot.send_photo(chat_id=update.message.chat_id,
                                photo=open(str(path), 'rb'))
+        if region == 'Catalunya' or type == 0:
+            path = 'plots_incidence/' + region + '.png'
+            context.bot.send_photo(chat_id=update.message.chat_id,
+                                   photo=open(str(path), 'rb'))
 
 
 # send a message to the user with the information of covid
@@ -102,7 +113,8 @@ TOKEN = open('./text/token.txt').read().strip()
 updater = Updater(token=TOKEN, use_context=True)
 
 # load Catalan counties list
-COUNTIES = [line.strip() for line in open('./text/counties.txt')]
+counties = pd.read_csv('./text/poblacio_comarques.csv', header=0)
+COUNTIES = list(counties['comarca'])
 MUNICIPALITIES = [line.strip() for line in open('./text/municipalities_complete.txt')]
 REGIONS = [line.strip() for line in open('./text/regions.txt')]
 
