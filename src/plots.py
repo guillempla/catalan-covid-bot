@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 from matplotlib.ticker import FuncFormatter
 from datetime import datetime, timedelta, MINYEAR
 from pandas.plotting import register_matplotlib_converters
@@ -181,12 +182,16 @@ class Plots:
         ax.set_ylim(XLIMIT, YLIMIT)
 
         # Set risk masks
-        Yl = np.ma.masked_inside(Y, 101, 2000)
-        Yh = np.ma.masked_inside(Y, 0, 100)
+        Yl = np.ma.masked_inside(Y, 50, 5000)
+        Ym = np.ma.masked_inside(Y, 0, 50)
+        Yh = np.ma.masked_inside(Y, 0, 150)
+        Ye = np.ma.masked_inside(Y, 0, 250)
 
         # Add data
-        ax.bar(X, Yl, color = 'green', linewidth=1.8, label='Incidència acumulada per sota o igual de 100', align='center')
-        ax.bar(X, Yh, color = 'red', linewidth=1.8, label='Incidència acumulada per sobre de 100', align='center')
+        ax.bar(X, Yl, color = mcolors.CSS4_COLORS['green'], linewidth=1.8, label='Risc baix (IA14 inferior a 50)', align='center')
+        ax.bar(X, Ym, color = mcolors.CSS4_COLORS['darkorange'], linewidth=1.8, label='Risc mitjà (IA entre 50 i 150)', align='center')
+        ax.bar(X, Yh, color = mcolors.CSS4_COLORS['red'], linewidth=1.8, label='Risc alt (IA entre 150 i 250)', align='center')
+        ax.bar(X, Ye, color = mcolors.CSS4_COLORS['darkred'], linewidth=1.8, label='Risc extrem (IA superior a 250)', align='center')
 
         # Turn region name into bold string
         bold = self.bold(self.region)
