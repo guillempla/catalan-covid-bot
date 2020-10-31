@@ -48,8 +48,6 @@ class Plots:
         self.deaths_accumulated = self.deaths_accumulated[len(self.deaths_accumulated)-DAYSAGO:]
         self.positive_incidence = self.positive_incidence[len(self.positive_incidence)-DAYSAGO:]
 
-        print(self.positive_cases)
-
         # Register convertes
         register_matplotlib_converters()
 
