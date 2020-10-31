@@ -1,6 +1,6 @@
 import difflib
 import pandas as pd
-from prova_plots import Plots
+from plots import Plots
 from tests import Tests
 from deaths import Deaths
 from datetime import datetime
@@ -46,7 +46,7 @@ def query(update, context):
             population=7800000
 
         plot = Plots(region, population, description)
-        path = 'plots_accumulated/' + region + '.png'
+        path = 'plots_daily/' + region + '.png'
         context.bot.send_photo(chat_id=update.message.chat_id,
                                photo=open(str(path), 'rb'))
         if region == 'Catalunya' or type == 0:
