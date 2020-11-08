@@ -6,18 +6,12 @@ from datetime import datetime, timedelta
 
 class Tests:
 
-    def __init__(self, region, description):
+    def __init__(self):
         self.limit = 400000
         self.dataset_link = "analisi.transparenciacatalunya.cat"
         self.dataset_id = "jj6z-iyrp"
-        self.region = region
-        self.description = description
-        self.total_tests = 0
-        self.positive_cases = 0
-        self.probable_cases = 0
-        self.last_test = 'None'
-        self.last_positive = 'None'
-        self.calculateInformation()
+
+        self.df = self.updateDatabase()
 
     # update tests' dataset
     def updateDatabase(self):
@@ -71,23 +65,23 @@ class Tests:
                 date = aux_date
         return date
 
-    # Returns true if df is a positive result, otherwise returns false
-    def positive(self, df):
-        column = 'resultatcoviddescripcio'
-        return (df[column] == 'Positiu PCR') | (df[column] ==
-                                                'Positiu per Test Ràpid') | (df[column] == 'Positiu per ELISA') | (df[column] == 'Epidemiològic')
+    # Returns true if data is a positive result, otherwise returns false
+    def positive(self, data):
+        return data == 'Positiu PCR' or data == 'Positiu per Test Ràpid' or data == 'Positiu per ELISA' or data == 'Epidemiològic'
+
+    # Returns true if data is a pcr or a fast test positive
+    def pcr(self, data):
+        return data == 'Positiu PCR' or data == 'Positiu per Test Ràpid'
 
     # Returns true if df is a positive result, otherwise returns false
-    def negative(self, df):
-        column = 'resultatcoviddescripcio'
-        return df[column] == 'Sospitós'
+    def negative(self, data):
+        return data == 'Sospitós'
 
     # calculates the number of cases for the region given
-    def calculateInformation(self):
-        df = self.updateDatabase()
-        df_region = df.loc[df[self.description] == self.region]
+    def calculateBasicInformation(self, region, description):
+        df_region = self.df.loc[self.df[description] == region]
 
-        if self.region == "Catalunya":
+        if region == "Catalunya":
             df_region = df
 
         df_positives = df_region.loc[self.positive]
@@ -108,3 +102,20 @@ class Tests:
             self.last_positive = datetime.strptime(
                 self.last_positive[:self.last_positive.find('.')], "%Y-%m-%dT%H:%M:%S")
             self.last_positive = self.last_positive.strftime("%d/%m/%Y")
+
+
+    def calculateTests(self, region, description):
+        df_region = self.df.loc[self.df[description] == region]
+
+        if region == "Catalunya":
+            df_tests_region = self.df_tests
+
+        for index, row in df_tests_region.iterrows():
+            date_time = self.stringToDatetime(row['data'])
+            date_index, = np.where(self.date == date_time)
+            if self.pcr(row['resultatcoviddescripcio']):
+                self.pcr_cases[date_index] += int(row['numcasos'])
+            if self.positive(row['resultatcoviddescripcio']):
+                self.positive_cases[date_index] += int(row['numcasos'])
+            elif self.negative(row['resultatcoviddescripcio']):
+                self.probable_cases[date_index] += int(row['numcasos'])
