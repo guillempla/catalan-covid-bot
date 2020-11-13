@@ -189,9 +189,9 @@ class Plots:
 
         # Add data
         ax.bar(X, Yl, color = mcolors.CSS4_COLORS['green'], linewidth=1.8, label='Risc baix (IA14 inferior a 50)', align='center')
-        ax.bar(X, Ym, color = mcolors.CSS4_COLORS['darkorange'], linewidth=1.8, label='Risc mitjà (IA entre 50 i 150)', align='center')
-        ax.bar(X, Yh, color = mcolors.CSS4_COLORS['red'], linewidth=1.8, label='Risc alt (IA entre 150 i 250)', align='center')
-        ax.bar(X, Ye, color = mcolors.CSS4_COLORS['darkred'], linewidth=1.8, label='Risc extrem (IA superior a 250)', align='center')
+        ax.bar(X, Ym, color = mcolors.CSS4_COLORS['darkorange'], linewidth=1.8, label='Risc mitjà (IA14 entre 50 i 150)', align='center')
+        ax.bar(X, Yh, color = mcolors.CSS4_COLORS['red'], linewidth=1.8, label='Risc alt (IA14 entre 150 i 250)', align='center')
+        ax.bar(X, Ye, color = mcolors.CSS4_COLORS['darkred'], linewidth=1.8, label='Risc extrem (IA14 superior a 250)', align='center')
 
         # Turn region name into bold string
         bold = self.bold(self.region)
