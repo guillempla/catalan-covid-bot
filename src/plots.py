@@ -15,6 +15,12 @@ SMALL_SIZE = 7
 MEDIUM_SIZE = 9
 BIGGER_SIZE = 11
 
+DAILY_PATH = 'plots_daily/'
+INCIDENCE_PATH = 'plots_incidence/'
+ACCUMULATED_PATH = 'plots_accumulated/'
+
+DPI = 150
+
 class Plots:
     def __init__(self, region, population, description):
         self.region = region
@@ -44,7 +50,7 @@ class Plots:
         if (self.description == 'comarcadescripcio'):
             self.calculateDeaths()
             self.calculateIncidence()
-        self.calculateAccumulated()
+        #self.calculateAccumulated()
 
         self.date = self.date[len(self.date)-DAYSAGO:]
         self.positive_cases = self.positive_cases[len(self.positive_cases)-DAYSAGO:]
@@ -62,14 +68,13 @@ class Plots:
         # Set x axes font size
         plt.rc('xtick', labelsize=SMALL_SIZE)
 
-        # self.plot(self.date, self.positive_cases, self.deaths, 'plots/')
         # self.plot_accumulated(self.date, self.positive_accumulated,
-        #           self.deaths_accumulated, 'plots_accumulated/')
+        #           self.deaths_accumulated)
         self.plot_daily(self.date, self.positive_cases,
-                  self.deaths, 'plots_daily/')
+                  self.deaths)
         if (self.description == 'comarcadescripcio'):
             self.plot_incidence(self.date, self.positive_incidence,
-                      self.deaths_incidence, 'plots_incidence/')
+                      self.deaths_incidence)
 
         self.file_path = ''
 
@@ -137,7 +142,7 @@ class Plots:
         self.probable_accumulated = np.cumsum(self.probable_cases)
         self.deaths_accumulated = np.cumsum(self.deaths)
 
-    def plot_accumulated(self, X, Y, Z, path):
+    def plot_accumulated(self, X, Y, Z):
         # Create plot
         fig, ax = plt.subplots()
 
@@ -173,11 +178,11 @@ class Plots:
         # Use tight layout
         fig.tight_layout()
         # Save
-        self.file_path = path + self.region + '.png'
-        plt.savefig(self.file_path, dpi=150, bbox_inches='tight')
+        self.file_path = ACCUMULATED_PATH + self.region + '.png'
+        plt.savefig(self.file_path, dpi=DPI, bbox_inches='tight')
         plt.close()
 
-    def plot_incidence(self, X, Y, Z, path):
+    def plot_incidence(self, X, Y, Z):
         # Create plot
         fig, ax = plt.subplots()
 
@@ -219,11 +224,11 @@ class Plots:
         # Use tight layout
         fig.tight_layout()
         # Save
-        self.file_path = path + self.region + '.png'
-        plt.savefig(self.file_path, dpi=150, bbox_inches='tight')
+        self.file_path = INCIDENCE_PATH + self.region + '.png'
+        plt.savefig(self.file_path, dpi=DPI, bbox_inches='tight')
         plt.close()
 
-    def plot_daily(self, X, Y, Z, path):
+    def plot_daily(self, X, Y, Z):
         # Create plot
         fig, ax = plt.subplots()
 
@@ -259,6 +264,6 @@ class Plots:
         # Use tight layout
         fig.tight_layout()
         # Save
-        self.file_path = path + self.region + '.png'
-        plt.savefig(self.file_path, dpi=150, bbox_inches='tight')
+        self.file_path = DAILY_PATH + self.region + '.png'
+        plt.savefig(self.file_path, dpi=DPI, bbox_inches='tight')
         plt.close()
