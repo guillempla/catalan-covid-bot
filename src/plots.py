@@ -9,7 +9,11 @@ from matplotlib.dates import DayLocator, MonthLocator, YearLocator, DateFormatte
 
 XLIMIT = 0
 YLIMIT = 1500
-DAYSAGO = 70
+DAYSAGO = 62
+
+SMALL_SIZE = 7
+MEDIUM_SIZE = 9
+BIGGER_SIZE = 11
 
 class Plots:
     def __init__(self, region, population, description):
@@ -54,6 +58,9 @@ class Plots:
 
         # Set the style
         plt.style.use(u'seaborn')
+
+        # Set x axes font size
+        plt.rc('xtick', labelsize=SMALL_SIZE)
 
         # self.plot(self.date, self.positive_cases, self.deaths, 'plots/')
         # self.plot_accumulated(self.date, self.positive_accumulated,
@@ -136,6 +143,7 @@ class Plots:
 
         # Rotate datetimes
         plt.setp(ax.get_xticklabels(), rotation=90, ha='right')
+        # plt.rc('xtick', labelsize=SMALL_SIZE)
         ax.xaxis.set_major_locator(DayLocator(interval=1))
         ax.xaxis.set_major_formatter(DateFormatter('%d/%m'))
         ax.set_xlim([X[0], X[-1]])
@@ -175,6 +183,7 @@ class Plots:
 
         # Rotate datetimes
         plt.setp(ax.get_xticklabels(), rotation=90, ha='right')
+        # plt.rc('xtick', labelsize=SMALL_SIZE)
         ax.xaxis.set_major_locator(DayLocator(interval=1))
         ax.xaxis.set_major_formatter(DateFormatter('%d/%m'))
         ax.set_xlim([X[0], X[-1]])
@@ -220,19 +229,24 @@ class Plots:
 
         # Rotate datetimes
         plt.setp(ax.get_xticklabels(), rotation=90, ha='right')
+        # plt.rc('xtick', labelsize=SMALL_SIZE)
         ax.xaxis.set_major_locator(DayLocator(interval=1))
         ax.xaxis.set_major_formatter(DateFormatter('%d/%m'))
         ax.set_xlim([X[0], X[-1]])
 
         # Add data
         ax.bar(X, Y, color = 'red', linewidth=1.8, label='Casos Positius', align='center')
-        ax.bar(X, Z, color = 'black', linewidth=1.8, label='Defuncions', align='center')
+        if (self.description == 'comarcadescripcio'):
+            ax.bar(X, Z, color = 'black', linewidth=1.8, label='Defuncions', align='center')
 
         # Turn region name into bold string
         bold = self.bold(self.region)
 
         # Labels
-        ax.set_title(bold + ': Casos i defuncions diaries')
+        if (self.description == 'comarcadescripcio'):
+            ax.set_title(bold + ': Casos i defuncions diaries')
+        else:
+            ax.set_title(bold + ': Casos diaris')
         ax.set_xlabel('Data')
         ax.set_ylabel('Positius')
         ax.legend(loc='upper left', framealpha=0.5)
