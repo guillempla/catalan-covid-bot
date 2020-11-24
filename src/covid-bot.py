@@ -58,10 +58,10 @@ def query(update, context):
 # send a message to the user with the information of covid
 def printCountyInformation(update, context, tests, deaths):
     msg = tests.region + ":\n" +\
-        "El nombre de casos positius és de " + str(tests.positive_cases) + "\n" +\
-        "El nombre de casos sospitosos és de " + str(tests.probable_cases) + "\n"
+        "El nombre de casos positius és de " + (format(tests.positive_cases, ",")).replace(',','.') + "\n" +\
+        "El nombre de casos sospitosos és de " + (format(tests.probable_cases, ",")).replace(',','.') + "\n"
     if deaths != "None":
-        msg = msg + "El nombre de defuncions és de " + str(deaths.total_deaths) + "\n\n"
+        msg = msg + "El nombre de defuncions és de " + (format(deaths.total_deaths, ",")).replace(',','.') + "\n\n"
         if deaths.last_death != 'None':
             msg = msg + "L'última defunció és del dia " + deaths.last_death + "\n"
 
