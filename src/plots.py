@@ -8,7 +8,7 @@ from pandas.plotting import register_matplotlib_converters
 from matplotlib.dates import DayLocator, MonthLocator, YearLocator, DateFormatter, date2num
 
 XLIMIT = 0
-YLIMIT = 1500
+YLIMIT = 2000
 DAYSAGO = 62
 
 SMALL_SIZE = 7
