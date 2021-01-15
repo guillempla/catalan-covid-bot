@@ -5,3 +5,5 @@ contrasenya.txt
 plots/*
 plots_accumulated/*
 plots_average/*
+plots_daily/*
+plots_incidence/*

@@ -8,7 +8,7 @@ from pandas.plotting import register_matplotlib_converters
 from matplotlib.dates import DayLocator, MonthLocator, YearLocator, DateFormatter, date2num
 
 XLIMIT = 0
-YLIMIT = 2000
+YLIMIT = 3000
 DAYSAGO = 62
 
 SMALL_SIZE = 7
@@ -86,10 +86,10 @@ class Plots:
         return bold
 
     def positive(self, data):
-        return data == 'Positiu PCR' or data == 'Positiu per Test Ràpid' or data == 'Positiu per ELISA' or data == 'Epidemiològic'
+        return data == 'Positiu PCR' or data == 'Positiu per Test Ràpid' or data == 'Positiu per ELISA' or data == 'Epidemiològic' or data == 'Positiu TAR' or data == 'PCR Sospitós'
 
     def pcr(self, data):
-        return data == 'Positiu PCR' or data == 'Positiu per Test Ràpid'
+        return data == 'Positiu PCR' or data == 'Positiu TAR'
 
     def negative(self, data):
         return data == 'Sospitós'
@@ -131,6 +131,7 @@ class Plots:
 
     def calculateIncidence(self):
         for i in range(len(self.positive_incidence)-1, 0, -1):
+            # if self.pcr_cases[i] == :
             self.positive_incidence[i] = np.sum(self.pcr_cases[max(0, i-13):i])
             self.deaths_incidence[i] = np.sum(self.deaths[max(0, i-13):i])
 

@@ -10,7 +10,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # decides which type of region is the region given
 def typeOfRegion(region):
-    closest_match = difflib.get_close_matches(region, REGIONS, cutoff=0.7)
+    closest_match = difflib.get_close_matches(region.upper(), REGIONS, cutoff=0.7)
     if len(closest_match) != 0:
         if closest_match[0] in COUNTIES:
             return (closest_match[0], 0)
@@ -57,7 +57,8 @@ def query(update, context):
 
 # send a message to the user with the information of covid
 def printCountyInformation(update, context, tests, deaths):
-    msg = tests.region + ":\n" +\
+    closest_match = difflib.get_close_matches(tests.region.lower(), CORRECT, cutoff=0.0)
+    msg = closest_match[0] + ":\n" +\
         "El total de positius és de " + (format(tests.positive_cases, ",")).replace(',','.') + "\n"
     if deaths != "None":
         msg = msg + "El nombre de defuncions és de " + (format(deaths.total_deaths, ",")).replace(',','.') + "\n\n"
@@ -113,9 +114,10 @@ updater = Updater(token=TOKEN, use_context=True)
 
 # load Catalan counties list
 counties = pd.read_csv('./text/poblacio_comarques.csv', header=0)
-COUNTIES = list(counties['comarca'])
-MUNICIPALITIES = [line.strip() for line in open('./text/municipalities_complete.txt')]
-REGIONS = [line.strip() for line in open('./text/regions.txt')]
+COUNTIES = [line.upper() for line in counties['comarca']]
+MUNICIPALITIES = [line.strip().upper() for line in open('./text/municipalities_complete.txt')]
+REGIONS = [line.strip().upper() for line in open('./text/regions.txt')]
+CORRECT = [line.strip() for line in open('./text/correct_regions.txt')]
 
 # when the bot receives a command its functionis executed
 updater.dispatcher.add_handler(CommandHandler('start', start))

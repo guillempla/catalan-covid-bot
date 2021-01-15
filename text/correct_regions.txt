@@ -1,46 +1,45 @@
-ALT CAMP
-ALT EMPORDA
-ALT PENEDES
-ALT URGELL
-ALTA RIBAGORÇA
-ANOIA
-VALL D'ARAN
-BAGES
-BAIX CAMP
-BAIX EBRE
-BAIX EMPORDA
-BAIX LLOBREGAT
-BAIX PENEDES
-BARCELONES
-BERGUEDA
-CERDANYA
-CONCA DE BARBERA
-GARRAF
-GARRIGUES
-GARROTXA
-GIRONES
-MARESME
-MOIANES
-MONTSIA
-NOGUERA
-OSONA
-PALLARS JUSSA
-PALLARS SOBIRA
-PLA DE L'ESTANY
-PLA D'URGELL
-PRIORAT
-RIBERA D'EBRE
-RIPOLLES
-SEGARRA
-SEGRIA
-SELVA
-SOLSONES
-TARRAGONES
-TERRA ALTA
-URGELL
-VALLES OCCIDENTAL
-VALLES ORIENTAL
-CATALUNYA
+Alt Camp
+Alt Empordà
+Alt Penedès
+Alt Urgell
+Alta Ribagorça
+Anoia
+Vall d'Aran
+Bages
+Baix Camp
+Baix Ebre
+Baix Empordà
+Baix Llobregat
+Baix Penedès
+Barcelonès
+Berguedà
+Cerdanya
+Conca de Barberà
+Garraf
+Garrigues
+Garrotxa
+Gironès
+Maresme
+Moianès
+Montsià
+Noguera
+Osona
+Pallars Jussà
+Pallars Sobirà
+Pla de l'Estany
+Pla d'Urgell
+Priorat
+Ribera d'Ebre
+Ripollès
+Segarra
+Segrià
+Selva
+Solsonès
+Tarragonès
+Terra Alta
+Urgell
+Vallès Occidental
+Vallès Oriental
 Abella de la Conca
 Abrera
 Àger
@@ -48,30 +47,30 @@ Agramunt
 Aguilar de Segarra
 Agullana
 Aiguafreda
-Aiguamurcia
+Aiguamúrcia
 Aiguaviva
 Aitona
-Alas i Cerc
-Albanya
-Albatarrec
+Alàs i Cerc
+Albanyà
+Albatàrrec
 Albesa
 Albinyana
 Albons
 Alcanar
-Alcano
-Alcarras
+Alcanó
+Alcarràs
 Alcoletge
 Alcover
 Aldover
 Alella
 Alfara de Carles
-Alfarras
-Alfes
+Alfarràs
+Alfés
 Alforja
 Algerri
 Alguaire
 Alins
-Alio
+Alió
 Almacelles
 Almatret
 Almenar
@@ -84,11 +83,11 @@ Alt Àneu
 Altafulla
 Amer
 Amposta
-Angles
+Anglès
 Anglesola
 Arbeca
-Arboli
-Arbucies
+Arbolí
+Arbúcies
 Arenys de Mar
 Arenys de Munt
 Argelaguer
@@ -96,30 +95,30 @@ Argençola
 Argentona
 Arnes
 Arres
-Arseguel
-Artes
+Arsèguel
+Artés
 Artesa de Lleida
 Artesa de Segre
-Asco
+Ascó
 Aspa
-Avia
-Avinyo
-Avinyonet de Puigventos
-Avinyonet del Penedes
+Avià
+Avinyó
+Avinyonet de Puigventós
+Avinyonet del Penedès
 Badalona
-Badia del Valles
-Baga
+Badia del Vallès
+Bagà
 Baix Pallars
 Balaguer
-Balenya
+Balenyà
 Balsareny
-Banyeres del Penedes
+Banyeres del Penedès
 Banyoles
 Barbens
-Barbera de la Conca
-Barbera del Valles
+Barberà de la Conca
+Barberà del Vallès
 Barcelona
-Bascara
+Bàscara
 Bassella
 Batea
 Bausen
@@ -128,7 +127,7 @@ Begur
 Belianes
 Bell-Lloc d'Urgell
 Bellaguarda
-Bellcaire d'Emporda
+Bellcaire d'Empordà
 Bellcaire d'Urgell
 Bellmunt d'Urgell
 Bellmunt del Priorat
@@ -136,13 +135,13 @@ Bellprat
 Bellpuig
 Bellvei
 Bellver de Cerdanya
-Bellvis
-Benavent de Segria
+Bellvís
+Benavent de Segrià
 Benifallet
 Benissanet
 Berga
-Besalu
-Bescano
+Besalú
+Bescanó
 Beuda
 Bigues i Riells
 Biosca
@@ -153,25 +152,25 @@ Boadella i les Escaules
 Bolvir
 Bonastre
 Bordils
-Borrassa
-Borreda
+Borrassà
+Borredà
 Bossòst
 Bot
 Botarell
 Bovera
-Brafim
+Bràfim
 Breda
 Brunyola
-Cabaces
+Cabacés
 Cabanabona
 Cabanelles
 Cabanes
-Cabo
+Cabó
 Cabra del Camp
 Cabrera d'Anoia
 Cabrera de Mar
 Cabrils
-Cadaques
+Cadaqués
 Calaf
 Calafell
 Calders
@@ -180,14 +179,14 @@ Caldes de Malavella
 Caldes de Montbui
 Calella
 Calldetenes
-Callus
+Callús
 Calonge de Segarra
 Calonge i Sant Antoni
 Camarasa
 Camarles
 Cambrils
-Camos
-Campdevanol
+Camós
+Campdevànol
 Campelles
 Campins
 Campllong
@@ -197,7 +196,7 @@ Canejan
 Canet d'Adri
 Canet de Mar
 Canovelles
-Canoves i Samalus
+Cànoves i Samalús
 Cantallops
 Canyelles
 Capafonts
@@ -208,7 +207,7 @@ Cardedeu
 Cardona
 Carme
 Caseres
-Cassa de la Selva
+Cassà de la Selva
 Casserres
 Castell de l'Areny
 Castell de Mur
@@ -216,7 +215,7 @@ Castell-Platja d'Aro
 Castellar de la Ribera
 Castellar de n'Hug
 Castellar del Riu
-Castellar del Valles
+Castellar del Vallès
 Castellbell i el Vilar
 Castellbisbal
 Castellcir
@@ -224,51 +223,51 @@ Castelldans
 Castelldefels
 Castellet i la Gornal
 Castellfollit de la Roca
-Castellfollit de Riubregos
+Castellfollit de Riubregós
 Castellfollit del Boix
-Castellgali
+Castellgalí
 Castellnou de Bages
 Castellnou de Seana
-Castello d'Empuries
-Castello de Farfanya
-Castelloli
-Castellsera
+Castelló d'Empúries
+Castelló de Farfanya
+Castellolí
+Castellserà
 Castellterçol
 Castellvell del Camp
-Castellvi de la Marca
-Catellvi de Rosanes
+Castellví de la Marca
+Catellví de Rosanes
 Cava
-Celra
+Celrà
 Centelles
 Cercs
-Cerdanyola del Valles
-Cervello
+Cerdanyola del Vallès
+Cervelló
 Cervera
-Cervia de les Garrigues
-Cervia de Ter
+Cervià de les Garrigues
+Cervià de Ter
 Cistella
 Ciutadilla
 Clariana de Cardener
 Colera
-Coll de Nargo
-Collbato
+Coll de Nargó
+Collbató
 Colldejou
 Collsuspina
 Colomers
 Conca de Dalt
 Conesa
-Constanti
+Constantí
 Copons
 Corbera d'Ebre
 Corbera de Llobregat
 Corbins
-Corça
-Cornella de Llobregat
-Cornella del Terri
+Corçà
+Cornellà de Llobregat
+Cornellà del Terri
 Cornudella de Montsant
 Creixell
-Crespia
-Cruïlles Monells i Sant Sadurni de l'Heura
+Crespià
+Cruïlles Monells i Sant Sadurní de l'Heura
 Cubelles
 Cubells
 Cunit
@@ -281,21 +280,21 @@ El Bruc
 El Brull
 El Catllar
 El Cogul
-El Far d'Emporda
-Figaro-Montmany
+El Far d'Empordà
+Figaró-Montmany
 El Lloar
 El Masnou
 El Masroig
-El Mila
+El Milà
 El Molar
 El Montmell
 El Morell
 El Palau d'Anglesola
 El Papiol
-El Perello
+El Perelló
 El Pinell de Brai
 El Pla de Santa Maria
-El Pla del Penedes
+El Pla del Penedès
 El Poal
 El Pont d'Armentera
 El Pont de Bar
@@ -304,17 +303,17 @@ El Pont de Vilomara i Rocafort
 El Port de la Selva
 El Prat de Llobregat
 El Rourell
-El Soleras
+El Soleràs
 El Vendrell
 El Vilosell
-Els Alamus
+Els Alamús
 Els Garidells
 Els Guiamets
 Els Hostalets de Pierola
 Els Omellons
 Els Omells de na Gaia
 Els Pallaresos
-Els Plans de Sio
+Els Plans de Sió
 Els Prats de Rei
 Els Torms
 Es Bòrdes
@@ -322,45 +321,45 @@ Esparreguera
 Espinelves
 Esplugues de Llobregat
 Espolla
-Esponella
+Esponellà
 Espot
 Estamariu
-Estaras
+Estaràs
 Esterri d'Àneu
-Esterri de Cardos
+Esterri de Cardós
 Falset
 Farrera
-Figols
-Figols i Alinya
+Fígols
+Fígols i Alinyà
 Figueres
 Figuerola del Camp
-Flaça
+Flaçà
 Flix
 Fogars de Tordera
-Fogars de Montclus
-Foixa
+Fogars de Montclús
+Foixà
 Folgueroles
 Fondarella
 Fonollosa
-Font-Rubi
+Font-Rubí
 Fontanals de Cerdanya
 Fontanilles
 Fontcoberta
 Foradada
 Forallac
-Fores
+Forès
 Fornells de la Selva
-Fortia
+Fortià
 Freginals
 Fulleda
-Gaia
+Gaià
 Gallifa
 Gandesa
 Garcia
-Garrigas
+Garrigàs
 Garrigoles
 Garriguella
-Gava
+Gavà
 Gavet de la Conca
 Gelida
 Ger
@@ -370,9 +369,9 @@ Girona
 Gironella
 Gisclareny
 Godall
-Golmes
-Gombren
-Gosol
+Golmés
+Gombrèn
+Gósol
 Granera
 Granollers
 Granyanella
@@ -381,53 +380,53 @@ Granyena de Segarra
 Gratallops
 Gualba
 Gualta
-Guardiola de Bergueda
+Guardiola de Berguedà
 Guils de Cerdanya
-Guimera
+Guimerà
 Guissona
 Guixers
 Gurb
 Horta de Sant Joan
 Hostalric
 Igualada
-Isona i Conca Della
+Isona i Conca Dellà
 Isòvol
 Ivars d'Urgell
 Ivars de Noguera
 Ivorra
 Jafre
 Jorba
-Josa i Tuixen
-Juia
+Josa i Tuixén
+Juià
 Juncosa
 Juneda
-L'Albages
+L'Albagés
 L'Albi
 L'Albiol
 L'Aldea
 L'Aleixar
 L'Ametlla de Mar
-L'Ametlla del Valles
+L'Ametlla del Vallès
 L'Ampolla
 L'Arboç
 L'Argentera
 L'Armentera
 L'Escala
 L'Espluga Calba
-L'Espluga de Francoli
+L'Espluga de Francolí
 L'Espunyola
 L'Esquirol
 L'Estany
 L'Hospitalet de Llobregat
 La Baronia de Rialb
-La Bisbal d'Emporda
+La Bisbal d'Empordà
 La Bisbal de Falset
-La Bisbal del Penedes
+La Bisbal del Penedès
 La Canonja
 La Cellera de Ter
 La Coma i la Pedra
 La Fatarella
-La Febro
+La Febró
 La Figuera
 La Floresta
 La Fuliola
@@ -440,33 +439,33 @@ La Guingueta d'Àneu
 La Jonquera
 La Llacuna
 La Llagosta
-La Maso
+La Masó
 La Molsosa
 La Morera de Montsant
-La Nou de Bergueda
-La Nou de Gaia
+La Nou de Berguedà
+La Nou de Gaià
 La Palma d'Ebre
-La Palma de Cervello
+La Palma de Cervelló
 La Pera
-La Pobla de Cervoles
+La Pobla de Cérvoles
 La Pobla de Claramunt
 La Pobla de Lillet
 La Pobla de Mafumet
 La Pobla de Massaluca
-La Pobla de Montornes
+La Pobla de Montornès
 La Pobla de Segur
 La Portella
 La Quar
 La Riba
-La Riera de Gaia
-La Roca del Valles
+La Riera de Gaià
+La Roca del Vallès
 La Secuita
 La Selva de Mar
 La Selva del Camp
-La Senia
-La Sentiu de Sio
+La Sénia
+La Sentiu de Sió
 La Seu d'Urgell
-La Tallada d'Emporda
+La Tallada d'Empordà
 La Torre de Cabdella
 La Torre de Claramunt
 La Torre de Fontaubella
@@ -474,8 +473,8 @@ La Torre de l'Espanyol
 La Vajol
 La Vall d'en Bas
 La Vall de Bianya
-La Vall de Boi
-La Vansa i Fornols
+La Vall de Boí
+La Vansa i Fórnols
 La Vilella Alta
 La Vilella Baixa
 Les
@@ -483,10 +482,10 @@ Les Avellanes i Santa Linya
 Les Borges Blanques
 Les Borges del Camp
 Les Cabanyes
-Les Franqueses del Valles
+Les Franqueses del Vallès
 Les Llosses
 Les Masies de Roda
-Les Masies de Voltrega
+Les Masies de Voltregà
 Les Oluges
 Les Piles
 Les Planes d'Hostoles
@@ -494,39 +493,39 @@ Les Preses
 Les Valls d'Aguilar
 Les Valls de Valira
 Linyola
-Llado
+Lladó
 Lladorre
 Lladurs
 Llagostera
 Llambilles
 Llanars
-Llança
+Llançà
 Llardecans
-Llavorsi
+Llavorsí
 Lleida
 Llers
 Lles de Cerdanya
-Lliça d'Amunt
-Lliça de Vall
+Lliçà d'Amunt
+Lliçà de Vall
 Llimiana
-Llinars del Valles
-Llivia
+Llinars del Vallès
+Llívia
 Llobera
 Llorac
-Llorenç del Penedes
+Llorenç del Penedès
 Lloret de Mar
-Lluça
+Lluçà
 Maçanet de Cabrenys
 Maçanet de la Selva
 Madremanya
-Maia de Montcal
+Maià de Montcal
 Maials
-Malda
+Maldà
 Malgrat de Mar
 Malla
 Manlleu
 Manresa
-Marça
+Marçà
 Margalef
 Marganell
 Martorell
@@ -541,19 +540,19 @@ Massalcoreig
 Massanes
 Massoteres
 Matadepera
-Mataro
+Mataró
 Mediona
-Menarguens
+Menàrguens
 Meranges
 Mieres
 Miralcamp
 Miravet
-Moia
+Moià
 Molins de Rei
 Mollerussa
 Mollet de Peralada
-Mollet del Valles
-Mollo
+Mollet del Vallès
+Molló
 Monistrol de Calders
 Monistrol de Montserrat
 Mont-Ral
@@ -561,10 +560,10 @@ Mont-Ras
 Mont-Roig del Camp
 Montagut i Oix
 Montblanc
-Montbrio del Camp
+Montbrió del Camp
 Montcada i Reixac
 Montclar
-Mortella i Martinet
+Mortellà i Martinet
 Montesquiu
 Montferrer i Castellbò
 Montferri
@@ -572,27 +571,27 @@ Montgai
 Montgat
 Montmajor
 Montmaneu
-Montmelo
+Montmeló
 Montoliu de Lleida
 Montoliu de Segarra
-Montornes de Segarra
-Montornes del Valles
+Montornès de Segarra
+Montornès del Vallès
 Montseny
-Mora d'Ebre
-Mora la Nova
+Móra d'Ebre
+Móra la Nova
 Muntanyola
 Mura
 Nalec
 Naut Aran
 Navarcles
-Navas
+Navàs
 Navata
-Naves
+Navès
 Nulles
-Oden
+Odèn
 Òdena
 Ogassa
-Olerdola
+Olèrdola
 Olesa de Bonesvalls
 Olesa de Montserrat
 Oliana
@@ -603,32 +602,32 @@ Olost
 Olot
 Olvan
 Ordis
-Organya
-Oris
-Orista
-Orpi
+Organyà
+Orís
+Oristà
+Orpí
 Òrrius
 Os de Balaguer
 Osor
-Osso de Sio
-Pacs del Penedes
+Ossó de Sió
+Pacs del Penedès
 Palafolls
 Palafrugell
-Palamos
-Palau de Santa Eulalia
+Palamós
+Palau de Santa Eulàlia
 Palau-Sator
 Palau-Saverdera
-Palau-Solita i Plegamans
-Palleja
+Palau-Solità i Plegamans
+Pallejà
 Palol de Revardit
 Pals
 Pardines
-Parets del Valles
-Parlava
+Parets del Vallès
+Parlavà
 Passanant i Belltall
 Pau
 Paüls
-Pedret i Marza
+Pedret i Marzà
 Penelles
 Perafita
 Perafort
@@ -636,16 +635,16 @@ Peralada
 Peramola
 Piera
 Pineda de Mar
-Pinell de Solsones
-Pinos
+Pinell de Solsonès
+Pinós
 Pira
 Planoles
 Poboleda
-Polinya
+Polinyà
 Pont de Molins
 Pontils
 Pontons
-Pontos
+Pontós
 Ponts
 Porqueres
 Porrera
@@ -654,16 +653,16 @@ Pradell de la Teixeta
 Prades
 Prat de Comte
 Pratdip
-Prats de Lluçanes
+Prats de Lluçanès
 Prats i Sansor
 Preixana
 Preixens
-Premia de Dalt
-Premia de Mar
+Premià de Dalt
+Premià de Mar
 Prullans
 Puig-Reig
-Puigcerda
-Puigdalber
+Puigcerdà
+Puigdàlber
 Puiggròs
 Puigpelat
 Puigverd d'Agramunt
@@ -672,10 +671,10 @@ Pujalt
 Quart
 Queralbs
 Querol
-Rabos
+Rabós
 Rajadell
 Rasquera
-Regencos
+Regencós
 Rellinars
 Renau
 Reus
@@ -697,28 +696,28 @@ Riudellots de la Selva
 Riudoms
 Riumors
 Rocafort de Queralt
-Roda de Bera
+Roda de Berà
 Roda de Ter
-Rodonya
+Rodonyà
 Roquetes
 Roses
-Rossello
-Rubi
-Rubio
-Rupia
+Rosselló
+Rubí
+Rubió
+Rupià
 Rupit i Pruit
 Sabadell
-Sagas
-Salas de Pallars
+Sagàs
+Salàs de Pallars
 Saldes
 Sales de Llierca
 Sallent
-Salomo
+Salomó
 Salou
 Salt
 Sanaüja
-Sant Adria del Besòs
-Sant Agusti de Lluçanes
+Sant Adrià del Besòs
+Sant Agustí de Lluçanès
 Sant Andreu de la Barca
 Sant Andreu de Llavaneres
 Sant Andreu Salou
@@ -726,120 +725,120 @@ Sant Aniol de Finestres
 Sant Antoni de Vilamajor
 Sant Bartomeu del Grau
 Sant Boi de Llobregat
-Sant Boi de Lluçanes
-Sant Carles de la Rapita
-Sant Cebria de Vallalta
+Sant Boi de Lluçanès
+Sant Carles de la Ràpita
+Sant Cebrià de Vallalta
 Sant Celoni
 Sant Climent de Llobregat
 Sant Climent Sescebes
-Sant Cugat del Valles
+Sant Cugat del Vallès
 Sant Cugat Sesgarrigues
 Sant Esteve de la Sarga
 Sant Esteve de Palautordera
 Sant Esteve Sesrovires
 Sant Feliu de Buixalleu
 Sant Feliu de Codines
-Sant Feliu de Guixols
+Sant Feliu de Guíxols
 Sant Feliu de Llobregat
 Sant Feliu de Pallerols
 Sant Feliu Sasserra
 Sant Ferriol
 Sant Fost de Campsentelles
-Sant Fruitos de Bages
+Sant Fruitós de Bages
 Sant Gregori
 Sant Guim de Freixenet
 Sant Guim de la Plana
 Sant Hilari Sacalm
-Sant Hipòlit de Voltrega
+Sant Hipòlit de Voltregà
 Sant Iscle de Vallalta
 Sant Jaume d'Enveja
-Sant Jaume de Frontanya
+Sant Jaume de Frontanyà
 Sant Jaume de Llierca
 Sant Jaume dels Domenys
 Sant Joan de les Abadesses
 Sant Joan de Mollet
 Sant Joan de Vilatorrada
-Sant Joan Despi
+Sant Joan Despí
 Sant Joan les Fonts
 Sant Jordi Desvalls
-Sant Julia de Cerdanyola
-Sant Julia de Ramis
-Sant Julia de Vilatorta
-Sant Julia del Llor i Bonmati
+Sant Julià de Cerdanyola
+Sant Julià de Ramis
+Sant Julià de Vilatorta
+Sant Julià del Llor i Bonmatí
 Sant Just Desvern
 Sant Llorenç d'Hortons
 Sant Llorenç de la Muga
 Sant Llorenç de Morunys
 Sant Llorenç Savall
-Sant Marti d'Albars
-Sant Marti de Centelles
-Sant Marti de Llemena
-Sant Marti de Riucorb
-Sant Marti de Tous
-Sant Marti Sarroca
-Sant Marti Sesgueioles
-Sant Marti Vell
+Sant Martí d'Albars
+Sant Martí de Centelles
+Sant Martí de Llémena
+Sant Martí de Riucorb
+Sant Martí de Tous
+Sant Martí Sarroca
+Sant Martí Sesgueioles
+Sant Martí Vell
 Sant Mateu de Bages
 Sant Miquel de Campmajor
-Sant Miquel de Fluvia
+Sant Miquel de Fluvià
 Sant Mori
-Sant Pau de Seguries
+Sant Pau de Segúries
 Sant Pere de Ribes
 Sant Pere de Riudebitlles
-Sant Pere de Torello
+Sant Pere de Torelló
 Sant Pere de Vilamajor
 Sant Pere Pescador
 Sant Pere Sallavinera
 Sant Pol de Mar
-Sant Quinti de Mediona
+Sant Quintí de Mediona
 Sant Quirze de Besora
-Sant Quirze del Valles
+Sant Quirze del Vallès
 Sant Quirze Safaja
 Sant Ramon
-Sant Sadurni d'Anoia
-Sant Sadurni d'Osormort
+Sant Sadurní d'Anoia
+Sant Sadurní d'Osormort
 Sant Salvador de Guardiola
 Sant Vicenç de Castellet
 Sant Vicenç de Montalt
-Sant Vicenç de Torello
+Sant Vicenç de Torelló
 Sant Vicenç dels Horts
-Santa Barbara
-Santa Cecilia de Voltrega
-Santa Coloma de Cervello
+Santa Bàrbara
+Santa Cecília de Voltregà
+Santa Coloma de Cervelló
 Santa Coloma de Farners
 Santa Coloma de Gramenet
 Santa Coloma de Queralt
 Santa Cristina d'Aro
-Santa Eugenia de Berga
-Santa Eulalia de Riuprimer
-Santa Eulalia de Ronçana
-Santa Fe del Penedes
+Santa Eugènia de Berga
+Santa Eulàlia de Riuprimer
+Santa Eulàlia de Ronçana
+Santa Fe del Penedès
 Santa Llogaia d'Àlguema
 Santa Margarida de Montbui
 Santa Margarida i els Monjos
-Santa Maria d'Olo
+Santa Maria d'Oló
 Santa Maria de Besora
 Santa Maria de Martorelles
-Santa Maria de Merles
+Santa Maria de Merlès
 Santa Maria de Miralles
 Santa Maria de Palautordera
 Santa Oliva
 Santa Pau
-Santa Perpetua de Mogoda
+Santa Perpètua de Mogoda
 Santa Susanna
 Santpedor
 Sarral
-Sarria de Ter
+Sarrià de Ter
 Sarroca de Bellera
 Sarroca de Lleida
 Saus Camallera i Llampaies
-Savalla del Comtat
+Savallà del Comtat
 Senan
 Senterada
 Sentmenat
-Serinya
+Serinyà
 Seròs
-Serra de Daro
+Serra de Daró
 Setcases
 Seva
 Sidamon
@@ -856,7 +855,7 @@ Soses
 Subirats
 Sudanell
 Sunyer
-Suria
+Súria
 Susqueda
 Tagamanent
 Talamanca
@@ -864,24 +863,24 @@ Talarn
 Talavera
 Taradell
 Tarragona
-Tarrega
-Tarres
+Tàrrega
+Tarrés
 Tarroja de Segarra
-Tavernoles
+Tavèrnoles
 Tavertet
-Teia
-Termens
+Teià
+Térmens
 Terrades
 Terrassa
 Tiana
-Tirvia
+Tírvia
 Tiurana
 Tivenys
 Tivissa
 Tona
-Tora
+Torà
 Tordera
-Torello
+Torelló
 Tornabous
 Torre-Serona
 Torrebesses
@@ -895,30 +894,30 @@ Torrelles de Foix
 Torrelles de Llobregat
 Torrent
 Torres del Segre
-Torroella de Fluvia
-Torroella de Montgri
+Torroella de Fluvià
+Torroella de Montgrí
 Torroja del Priorat
-Tortella
+Tortellà
 Tortosa
 Toses
 Tossa de Mar
 Tremp
-Ulla
+Ullà
 Ullastrell
 Ullastret
 Ulldecona
 Ulldemolins
 Ultramort
-Urus
+Urús
 Vacarisses
-La Vall de Cardos
+La Vall de Cardós
 Vall-Llobrega
 Vallbona d'Anoia
 Vallbona de les Monges
 Vallcebre
 Vallclara
 Vallfogona de Balaguer
-Vallfogona de Ripolles
+Vallfogona de Ripollès
 Vallfogona de Riucorb
 Vallgorguina
 Vallirana
@@ -927,12 +926,12 @@ Vallromanes
 Valls
 Vandellòs i l'Hospitalet de l'Infant
 Veciana
-Ventallo
-Verdu
+Ventalló
+Verdú
 Verges
 Vespella
 Vic
-Vidra
+Vidrà
 Vidreres
 Vielha e Mijaran
 Vila-Rodona
@@ -950,7 +949,7 @@ Viladecavalls
 Vilademuls
 Viladrau
 Vilafant
-Vilafranca del Penedes
+Vilafranca del Penedès
 Vilagrassa
 Vilajuïga
 Vilalba dels Arcs
@@ -967,22 +966,22 @@ Vilanova d'Escornalbou
 Vilanova de Bellpuig
 Vilanova de l'Aguda
 Vilanova de la Barca
-Vilanova de Meia
+Vilanova de Meià
 Vilanova de Prades
 Vilanova de Sau
-Vilanova de Segria
-Vilanova del Cami
-Vilanova del Valles
-Vilanova i la Geltru
+Vilanova de Segrià
+Vilanova del Camí
+Vilanova del Vallès
+Vilanova i la Geltrú
 Vilaplana
 Vilassar de Dalt
 Vilassar de Mar
 Vilaür
 Vilaverd
-Vilobi d'Onyar
-Vilobi del Penedes
+Vilobí d'Onyar
+Vilobí del Penedès
 Vilopriu
-Vimbodi i Poblet
+Vimbodí i Poblet
 Vinaixa
 Vinebre
 Vinyols i els Arcs

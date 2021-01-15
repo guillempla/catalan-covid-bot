@@ -19,7 +19,7 @@ class Deaths:
     def updateDatabase(self):
         f = open("./text/last_update_deaths.txt").read().strip()
         last_update = datetime.strptime(f, "%Y-%m-%dT%H:%M:%S")
-        if datetime.now()-last_update > timedelta(hours=6):
+        if datetime.now()-last_update > timedelta(hours=8):
             f = open("./text/last_update_deaths.txt", "w")
             f.write((datetime.now()).strftime("%Y-%m-%dT%H:%M:%S"))
             f.close()
@@ -72,7 +72,7 @@ class Deaths:
             self.region = "Val d'Aran"
         df_region = df.loc[df['comarcadescripcio'] == self.region]
 
-        if self.region == "Catalunya":
+        if self.region == "CATALUNYA":
             df_region = df
 
         self.total_deaths = df_region['numexitus'].astype(int).sum()

@@ -23,19 +23,15 @@ class Tests:
     def updateDatabase(self):
         f = open("./text/last_update_tests.txt").read().strip()
         last_update = datetime.strptime(f, "%Y-%m-%dT%H:%M:%S")
-        if datetime.now()-last_update > timedelta(hours=6):
+        if datetime.now()-last_update > timedelta(hours=8):
             f = open("./text/last_update_tests.txt", "w")
             f.write((datetime.now()).strftime("%Y-%m-%dT%H:%M:%S"))
             f.close()
-            print("updated")
             client = Socrata(self.dataset_link, None)
             data = client.get(self.dataset_id, limit=self.limit)
             df = pd.DataFrame.from_dict(data)
+            print("updated")
             if self.checkDataIntegrity(df):
-                df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
-                    "\xa0", "")
-                df['municipidescripcio'] = df['municipidescripcio'].str.replace(
-                    "\xa0", "")
                 df.to_pickle("./text/tests_backup.pkl")
                 return df
             else:
@@ -47,15 +43,8 @@ class Tests:
             return df
 
     def checkDataIntegrity(self, df):
-        try:
-            df['comarcadescripcio'] = df['comarcadescripcio'].str.replace(
-                "\xa0", "")
-            df['municipidescripcio'] = df['municipidescripcio'].str.replace(
-                "\xa0", "")
-        except KeyError:
-            return False
-        df_sort = df.loc[df['municipidescripcio'] == 'Sort']
-        df_jussa = df.loc[df['comarcadescripcio'] == 'Pallars Jussà']
+        df_sort = df.loc[df['municipidescripcio'] == 'SORT']
+        df_jussa = df.loc[df['comarcadescripcio'] == 'PALLARS JUSSA']
         if len(df_sort) < 25 or len(df_jussa) < 100:
             return False
         return True
@@ -75,7 +64,7 @@ class Tests:
     def positive(self, df):
         column = 'resultatcoviddescripcio'
         return (df[column] == 'Positiu PCR') | (df[column] ==
-                                                'Positiu per Test Ràpid') | (df[column] == 'Positiu per ELISA') | (df[column] == 'Epidemiològic')
+                                                'Positiu per Test Ràpid') | (df[column] == 'Positiu per ELISA') | (df[column] == 'Epidemiològic')  | (df[column] == 'Positiu TAR')
 
     # Returns true if df is a positive result, otherwise returns false
     def negative(self, df):
@@ -87,15 +76,13 @@ class Tests:
         df = self.updateDatabase()
         df_region = df.loc[df[self.description] == self.region]
 
-        if self.region == "Catalunya":
+        if self.region == "CATALUNYA":
             df_region = df
 
         df_positives = df_region.loc[self.positive]
-        df_probable = df_region.loc[self.negative]
 
         self.total_tests = df_region['numcasos'].astype(int).sum()
         self.positive_cases = df_positives['numcasos'].astype(int).sum()
-        self.probable_cases = df_probable['numcasos'].astype(int).sum()
 
         if self.total_tests > 0:
             self.last_test = df_region['data'].max()
