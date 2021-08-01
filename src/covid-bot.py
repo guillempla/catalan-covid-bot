@@ -38,6 +38,8 @@ def query(update, context):
             population = int(row.habitants)
         elif type == 1:
             description = 'municipidescripcio'
+            row = municipalities.loc[municipalities['municipi'] == region]
+            population = int(row.habitants)
 
         tests = Tests(region, description)
         printCountyInformation(update, context, tests, deaths)
@@ -49,9 +51,9 @@ def query(update, context):
         path = 'plots_daily/' + region + '.png'
         context.bot.send_photo(chat_id=update.message.chat_id,
                                photo=open(str(path), 'rb'))
-        if region == 'Catalunya' or type == 0:
-            path = 'plots_incidence/' + region + '.png'
-            context.bot.send_photo(chat_id=update.message.chat_id,
+
+        path = 'plots_incidence/' + region + '.png'
+        context.bot.send_photo(chat_id=update.message.chat_id,
                                    photo=open(str(path), 'rb'))
 
 
@@ -114,8 +116,9 @@ updater = Updater(token=TOKEN, use_context=True)
 
 # load Catalan counties list
 counties = pd.read_csv('./text/poblacio_comarques.csv', header=0)
+municipalities = pd.read_csv('./text/municipis_habitants.csv', header=0)
 COUNTIES = [line.upper() for line in counties['comarca']]
-MUNICIPALITIES = [line.strip().upper() for line in open('./text/municipalities_complete.txt')]
+MUNICIPALITIES = [line.upper() for line in municipalities['municipi']]
 REGIONS = [line.strip().upper() for line in open('./text/regions.txt')]
 CORRECT = [line.strip() for line in open('./text/correct_regions.txt')]
 

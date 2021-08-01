@@ -47,9 +47,9 @@ class Plots:
 
         # Calculate data
         self.calculateTests()
+        self.calculateIncidence()
         if (self.description == 'comarcadescripcio'):
             self.calculateDeaths()
-            self.calculateIncidence()
         #self.calculateAccumulated()
 
         self.date = self.date[len(self.date)-DAYSAGO:]
@@ -72,9 +72,7 @@ class Plots:
         #           self.deaths_accumulated)
         self.plot_daily(self.date, self.positive_cases,
                   self.deaths)
-        if (self.description == 'comarcadescripcio'):
-            self.plot_incidence(self.date, self.positive_incidence,
-                      self.deaths_incidence)
+        self.plot_incidence(self.date, self.positive_incidence)
 
         self.file_path = ''
 
@@ -133,7 +131,7 @@ class Plots:
         for i in range(len(self.positive_incidence)-1, 0, -1):
             # if self.pcr_cases[i] == :
             self.positive_incidence[i] = np.sum(self.pcr_cases[max(0, i-13):i])
-            self.deaths_incidence[i] = np.sum(self.deaths[max(0, i-13):i])
+            #self.deaths_incidence[i] = np.sum(self.deaths[max(0, i-13):i])
 
         self.positive_incidence = np.multiply(np.divide(self.positive_incidence, self.population), 100000)
         self.deaths_incidence = np.multiply(np.divide(self.deaths_incidence, self.population), 100000)
@@ -183,7 +181,7 @@ class Plots:
         plt.savefig(self.file_path, dpi=DPI, bbox_inches='tight')
         plt.close()
 
-    def plot_incidence(self, X, Y, Z):
+    def plot_incidence(self, X, Y):
         # Create plot
         fig, ax = plt.subplots()
 
